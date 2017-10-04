@@ -23,15 +23,14 @@ function submit2() {
     })
 }
 
-// $(document).ready(function () {
-//     $("#upprovider").click(function () {
-//         $("#split").load("upproviders.html");
-//     });
-//
-//     $("#upweb").click(function () {
-//         $("#split").load("upweb.html");
-//     })
-// });
+$(document).ready(function () {
+    $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
+        var protype = $(e.target).text();
+        $.get('applist', {'protype': protype}, function (res) {
+            alert(res);
+        })
+    })
+});
 
 function format() {
     var txtr_before = document.getElementById('soa_txtarea_before');
@@ -47,8 +46,7 @@ function format() {
     filelist = filelist.replace(/\.java/g, '\.class');
 
     row_num = filelist.split('\n').length;
-    if ( row_num > 8)
-    {
+    if (row_num > 8) {
         row_num = 8
     }
 

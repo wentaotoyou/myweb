@@ -1,14 +1,19 @@
 <!DOCTYPE html>
-<!--[if lt IE 7 ]> <html class="ie6"> <![endif]-->
-<!--[if IE 7 ]>    <html class="ie7"> <![endif]-->
-<!--[if IE 8 ]>    <html class="ie8"> <![endif]-->
-<!--[if IE 9 ]>    <html class="ie9"> <![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en"><!--<![endif]-->
+<!--[if lt IE 7 ]>
+<html class="ie6"> <![endif]-->
+<!--[if IE 7 ]>
+<html class="ie7"> <![endif]-->
+<!--[if IE 8 ]>
+<html class="ie8"> <![endif]-->
+<!--[if IE 9 ]>
+<html class="ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html lang="en"><!--<![endif]-->
 <head>
     <title>
 
 
-Rundeck - Generate_Web_Packages
+        Rundeck - Generate_Web_Packages
     </title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -25,163 +30,143 @@ Rundeck - Generate_Web_Packages
     <script src="/js/respond.min.js" type="text/javascript"></script>
 
     <![endif]-->
-    <script type="text/javascript" src="/assets/jquery-5393bf5931b3c4e7052edeec0d67327b.js" ></script>
-    <script type="text/javascript" src="/assets/jquery-ui-1a5164fb468e98b907b69ead57230ccc.js" ></script>
-    <script type="text/javascript" src="/assets/jquery-ui-timepicker-addon-5d3451602f119699d88f688ae667befb.js" ></script>
-    <script type="text/javascript" src="/assets/bootstrap-6b8c56148416f3d639db7f96cb65ef8e.js" ></script>
-    <script type="text/javascript" src="/assets/prototype.min-0f8d9f14cc56b66dac0074033bae806d.js" ></script>
-    <script type="text/javascript" src="/assets/application-833b9787d444ebf9e41b5ddbc91bf0fd.js" ></script>
+    <script type="text/javascript" src="/assets/jquery-5393bf5931b3c4e7052edeec0d67327b.js"></script>
+    <script type="text/javascript" src="/assets/jquery-ui-1a5164fb468e98b907b69ead57230ccc.js"></script>
+    <script type="text/javascript"
+            src="/assets/jquery-ui-timepicker-addon-5d3451602f119699d88f688ae667befb.js"></script>
+    <script type="text/javascript" src="/assets/bootstrap-6b8c56148416f3d639db7f96cb65ef8e.js"></script>
+    <script type="text/javascript" src="/assets/prototype.min-0f8d9f14cc56b66dac0074033bae806d.js"></script>
+    <script type="text/javascript" src="/assets/application-833b9787d444ebf9e41b5ddbc91bf0fd.js"></script>
 
 
-
-<script type="text/javascript">
-
-
-    var appLinks = {
-        disclosureIcon: '/images/icon-tiny-disclosure.png',
-        disclosureIconOpen: '/images/icon-tiny-disclosure-open.png',
-        iconTinyWarn: '/images/icon-tiny-warn.png',
-        iconTinyOk: '/images/icon-tiny-ok.png',
-        iconSmallRemoveX: '/images/icon-small-removex.png',
-        iconTinyRemoveX: '/images/icon-tiny-removex.png',
-        iconSpinner: '/images/icon-tiny-disclosure-waiting.gif',
-        executionCancelExecution: '/execution/cancelExecution?format=json',
-        tailExecutionOutput: '/execution/tailExecutionOutput?format=json',
-        reportsEventsFragment:"/project/Generate_Update_packages/events/eventsFragment",
-        executionAjaxExecState: "/execution/ajaxExecState",
-        executionAjaxExecNodeState: "/execution/ajaxExecNodeState",
-        frameworkViewResourceModelConfig: "/resources/viewResourceModelConfig",
-        frameworkCheckResourceModelConfig: "/resources/checkResourceModelConfig",
-        frameworkEditResourceModelConfig: "/resources/editResourceModelConfig",
-        frameworkCreateResourceModelConfig: "/resources/createResourceModelConfig",
-        frameworkNodes: "/project/Generate_Update_packages/nodes",
-        frameworkNodesFragment: "/resources/nodesFragment?project=Generate_Update_packages",
-        frameworkNodesQueryAjax: "/resources/nodesQueryAjax?project=Generate_Update_packages",
-        frameworkAdhoc: "/project/Generate_Update_packages/command/run",
-        frameworkReloadNodes: "/resources/reloadNodes?project=Generate_Update_packages",
-        frameworkNodeSummaryAjax: "/resources/nodeSummaryAjax?project=Generate_Update_packages",
-        frameworkDeleteNodeFilterAjax: "/resources/deleteNodeFilterAjax?project=Generate_Update_packages",
-        reportsEventsAjax: "/project/Generate_Update_packages/events/eventsAjax",
-        menuNowrunningAjax: "/menu/nowrunningAjax?project=Generate_Update_packages",
-        menuHomeAjax: "/menu/homeAjax?project=Generate_Update_packages",
-        menuHomeSummaryAjax: "/menu/homeSummaryAjax?project=Generate_Update_packages",
-        menuProjectNamesAjax: "/menu/projectNamesAjax?project=Generate_Update_packages",
-        menuJobsAjax: "/menu/jobsAjax?format=json",
-        menuJobSearchJson: '/menu/jobsSearchJson',
-        scheduledExecutionRunAdhocInline: "/project/Generate_Update_packages/job/runAdhocInline",
-        scheduledExecutionCreate: "/project/Generate_Update_packages/job/create",
-        scheduledExecutionExecuteFragment: '/project/Generate_Update_packages/job/executeFragment',
-        scheduledExecutionActionMenuFragment: '/project/Generate_Update_packages/job/actionMenuFragment',
-        scheduledExecutionRunJobInline: '/project/Generate_Update_packages/job/runJobInline',
-        scheduledExecutionScheduleJobInline: '/project/Generate_Update_packages/job/scheduleJobInline',
-        scheduledExecutionDetailFragment: '/project/Generate_Update_packages/job/detailFragment',
-        scheduledExecutionDetailFragmentAjax: '/project/Generate_Update_packages/job/detailFragmentAjax',
-        scheduledExecutionJobExecutionsAjax: '/project/Generate_Update_packages/job/jobExecutionsAjax',
-        scheduledExecutionSanitizeHtml: '/project/Generate_Update_packages/job/sanitizeHtml',
-        scheduledExecutionWorkflowJson: '/project/Generate_Update_packages/job/workflowJson',
-        executionFollowFragment: "/execution/followFragment?project=Generate_Update_packages",
-        adhocHistoryAjax: "/execution/adhocHistoryAjax?project=Generate_Update_packages",
-        menuJobs: "/project/Generate_Update_packages/jobs",
-        userAddFilterPref: "/user/addFilterPref?project=Generate_Update_packages",
-        userClearApiToken: "/user/clearApiToken?format=json",
-        userGenerateUserToken: "/user/generateUserToken?format=json",
-        userRevealTokenData: "/user/renderUsertoken?format=json",
-        userRenderApiToken: "/user/renderApiToken",
-
-        workflowEdit: '/workflow/edit?project=Generate_Update_packages',
-        workflowCopy: '/workflow/copy?project=Generate_Update_packages',
-        workflowRender: '/workflow/renderItem?project=Generate_Update_packages',
-        workflowSave: '/workflow/save?project=Generate_Update_packages',
-        workflowReorder: '/workflow/reorder?project=Generate_Update_packages',
-        workflowRemove: '/workflow/remove?project=Generate_Update_packages',
-        workflowUndo: '/workflow/undo?project=Generate_Update_packages',
-        workflowRedo: '/workflow/redo?project=Generate_Update_packages',
-        workflowRevert: '/workflow/revert?project=Generate_Update_packages',
-        workflowRenderUndo: '/workflow/renderUndo?project=Generate_Update_packages',
-        workflowEditStepFilter: '/workflow/editStepFilter?project=Generate_Update_packages',
-        workflowSaveStepFilter: '/workflow/saveStepFilter?project=Generate_Update_packages',
-        workflowValidateStepFilter: '/workflow/validateStepFilter?project=Generate_Update_packages',
-        workflowRemoveStepFilter: '/workflow/removeStepFilter?project=Generate_Update_packages',
-
-        editOptsRenderUndo: '/editOpts/renderUndo?project=Generate_Update_packages',
-        editOptsEdit: '/editOpts/edit?project=Generate_Update_packages',
-        editOptsRender: '/editOpts/renderOpt?project=Generate_Update_packages',
-        editOptsSave: '/editOpts/save?project=Generate_Update_packages',
-        editOptsRenderAll: '/editOpts/renderAll?project=Generate_Update_packages',
-        editOptsRenderSummary: '/editOpts/renderSummary?project=Generate_Update_packages',
-        editOptsRemove: '/editOpts/remove?project=Generate_Update_packages',
-        editOptsReorder: '/editOpts/reorder?project=Generate_Update_packages',
-        editOptsUndo: '/editOpts/undo?project=Generate_Update_packages',
-        editOptsRedo: '/editOpts/redo?project=Generate_Update_packages',
-        editOptsRevert: '/editOpts/revert?project=Generate_Update_packages',
-        menuJobsPicker: '/menu/jobsPicker?project=Generate_Update_packages',
-        scheduledExecutionGroupTreeFragment: '/project/Generate_Update_packages/job/groupTreeFragment',
-        storageKeysBrowse: '/menu/storage',
-        storageKeysApi: '/storage/access/keys',
-        storageKeysDownload: '/storage/download/keys',
-        storageKeysDelete: '/storage/delete/keys',
-        apiExecutionsBulkDelete: '/execution/deleteBulkApi'
-    } ;
-
-</script>
+    <script type="text/javascript">
 
 
+        var appLinks = {
+            disclosureIcon: '/images/icon-tiny-disclosure.png',
+            disclosureIconOpen: '/images/icon-tiny-disclosure-open.png',
+            iconTinyWarn: '/images/icon-tiny-warn.png',
+            iconTinyOk: '/images/icon-tiny-ok.png',
+            iconSmallRemoveX: '/images/icon-small-removex.png',
+            iconTinyRemoveX: '/images/icon-tiny-removex.png',
+            iconSpinner: '/images/icon-tiny-disclosure-waiting.gif',
+            executionCancelExecution: '/execution/cancelExecution?format=json',
+            tailExecutionOutput: '/execution/tailExecutionOutput?format=json',
+            reportsEventsFragment: "/project/Generate_Update_packages/events/eventsFragment",
+            executionAjaxExecState: "/execution/ajaxExecState",
+            executionAjaxExecNodeState: "/execution/ajaxExecNodeState",
+            frameworkViewResourceModelConfig: "/resources/viewResourceModelConfig",
+            frameworkCheckResourceModelConfig: "/resources/checkResourceModelConfig",
+            frameworkEditResourceModelConfig: "/resources/editResourceModelConfig",
+            frameworkCreateResourceModelConfig: "/resources/createResourceModelConfig",
+            frameworkNodes: "/project/Generate_Update_packages/nodes",
+            frameworkNodesFragment: "/resources/nodesFragment?project=Generate_Update_packages",
+            frameworkNodesQueryAjax: "/resources/nodesQueryAjax?project=Generate_Update_packages",
+            frameworkAdhoc: "/project/Generate_Update_packages/command/run",
+            frameworkReloadNodes: "/resources/reloadNodes?project=Generate_Update_packages",
+            frameworkNodeSummaryAjax: "/resources/nodeSummaryAjax?project=Generate_Update_packages",
+            frameworkDeleteNodeFilterAjax: "/resources/deleteNodeFilterAjax?project=Generate_Update_packages",
+            reportsEventsAjax: "/project/Generate_Update_packages/events/eventsAjax",
+            menuNowrunningAjax: "/menu/nowrunningAjax?project=Generate_Update_packages",
+            menuHomeAjax: "/menu/homeAjax?project=Generate_Update_packages",
+            menuHomeSummaryAjax: "/menu/homeSummaryAjax?project=Generate_Update_packages",
+            menuProjectNamesAjax: "/menu/projectNamesAjax?project=Generate_Update_packages",
+            menuJobsAjax: "/menu/jobsAjax?format=json",
+            menuJobSearchJson: '/menu/jobsSearchJson',
+            scheduledExecutionRunAdhocInline: "/project/Generate_Update_packages/job/runAdhocInline",
+            scheduledExecutionCreate: "/project/Generate_Update_packages/job/create",
+            scheduledExecutionExecuteFragment: '/project/Generate_Update_packages/job/executeFragment',
+            scheduledExecutionActionMenuFragment: '/project/Generate_Update_packages/job/actionMenuFragment',
+            scheduledExecutionRunJobInline: '/project/Generate_Update_packages/job/runJobInline',
+            scheduledExecutionScheduleJobInline: '/project/Generate_Update_packages/job/scheduleJobInline',
+            scheduledExecutionDetailFragment: '/project/Generate_Update_packages/job/detailFragment',
+            scheduledExecutionDetailFragmentAjax: '/project/Generate_Update_packages/job/detailFragmentAjax',
+            scheduledExecutionJobExecutionsAjax: '/project/Generate_Update_packages/job/jobExecutionsAjax',
+            scheduledExecutionSanitizeHtml: '/project/Generate_Update_packages/job/sanitizeHtml',
+            scheduledExecutionWorkflowJson: '/project/Generate_Update_packages/job/workflowJson',
+            executionFollowFragment: "/execution/followFragment?project=Generate_Update_packages",
+            adhocHistoryAjax: "/execution/adhocHistoryAjax?project=Generate_Update_packages",
+            menuJobs: "/project/Generate_Update_packages/jobs",
+            userAddFilterPref: "/user/addFilterPref?project=Generate_Update_packages",
+            userClearApiToken: "/user/clearApiToken?format=json",
+            userGenerateUserToken: "/user/generateUserToken?format=json",
+            userRevealTokenData: "/user/renderUsertoken?format=json",
+            userRenderApiToken: "/user/renderApiToken",
+
+            workflowEdit: '/workflow/edit?project=Generate_Update_packages',
+            workflowCopy: '/workflow/copy?project=Generate_Update_packages',
+            workflowRender: '/workflow/renderItem?project=Generate_Update_packages',
+            workflowSave: '/workflow/save?project=Generate_Update_packages',
+            workflowReorder: '/workflow/reorder?project=Generate_Update_packages',
+            workflowRemove: '/workflow/remove?project=Generate_Update_packages',
+            workflowUndo: '/workflow/undo?project=Generate_Update_packages',
+            workflowRedo: '/workflow/redo?project=Generate_Update_packages',
+            workflowRevert: '/workflow/revert?project=Generate_Update_packages',
+            workflowRenderUndo: '/workflow/renderUndo?project=Generate_Update_packages',
+            workflowEditStepFilter: '/workflow/editStepFilter?project=Generate_Update_packages',
+            workflowSaveStepFilter: '/workflow/saveStepFilter?project=Generate_Update_packages',
+            workflowValidateStepFilter: '/workflow/validateStepFilter?project=Generate_Update_packages',
+            workflowRemoveStepFilter: '/workflow/removeStepFilter?project=Generate_Update_packages',
+
+            editOptsRenderUndo: '/editOpts/renderUndo?project=Generate_Update_packages',
+            editOptsEdit: '/editOpts/edit?project=Generate_Update_packages',
+            editOptsRender: '/editOpts/renderOpt?project=Generate_Update_packages',
+            editOptsSave: '/editOpts/save?project=Generate_Update_packages',
+            editOptsRenderAll: '/editOpts/renderAll?project=Generate_Update_packages',
+            editOptsRenderSummary: '/editOpts/renderSummary?project=Generate_Update_packages',
+            editOptsRemove: '/editOpts/remove?project=Generate_Update_packages',
+            editOptsReorder: '/editOpts/reorder?project=Generate_Update_packages',
+            editOptsUndo: '/editOpts/undo?project=Generate_Update_packages',
+            editOptsRedo: '/editOpts/redo?project=Generate_Update_packages',
+            editOptsRevert: '/editOpts/revert?project=Generate_Update_packages',
+            menuJobsPicker: '/menu/jobsPicker?project=Generate_Update_packages',
+            scheduledExecutionGroupTreeFragment: '/project/Generate_Update_packages/job/groupTreeFragment',
+            storageKeysBrowse: '/menu/storage',
+            storageKeysApi: '/storage/access/keys',
+            storageKeysDownload: '/storage/download/keys',
+            storageKeysDelete: '/storage/delete/keys',
+            apiExecutionsBulkDelete: '/execution/deleteBulkApi'
+        };
+
+    </script>
 
 
+    <style type="text/css">
+
+        .rdicon.app-logo, .nodedetail.server .nodedesc, .node_entry.server .nodedesc {
+            width: 16px;
+            height: 16px;
+            vertical-align: baseline;
+        }
+
+        .rdicon.app-logo, .nodedetail.server .nodedesc, .node_entry.server .nodedesc {
+            background-image: url("/images/rundeck2-icon-16.png");
+            background-repeat: no-repeat;
+        }
+
+        @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (   min--moz-device-pixel-ratio: 2), only screen and (     -o-min-device-pixel-ratio: 2/1), only screen and (        min-device-pixel-ratio: 2), only screen and (                min-resolution: 192dpi), only screen and (                min-resolution: 2dppx) {
+            .rdicon.app-logo, .nodedetail.server .nodedesc, .node_entry.server .nodedesc {
+                background-image: url("/images/rundeck2-icon-32.png");
+                background-size: 16px 16px;
+            }
+        }
 
 
-
-
-
-<style type="text/css">
-
-    .rdicon.app-logo, .nodedetail.server .nodedesc, .node_entry.server .nodedesc{
-          width: 16px;
-          height: 16px;
-        vertical-align: baseline;
-    }
-
-    .rdicon.app-logo, .nodedetail.server .nodedesc, .node_entry.server .nodedesc {
-        background-image: url("/images/rundeck2-icon-16.png");
-        background-repeat: no-repeat;
-    }
-
-    @media
-    only screen and (-webkit-min-device-pixel-ratio: 2),
-    only screen and (   min--moz-device-pixel-ratio: 2),
-    only screen and (     -o-min-device-pixel-ratio: 2/1),
-    only screen and (        min-device-pixel-ratio: 2),
-    only screen and (                min-resolution: 192dpi),
-    only screen and (                min-resolution: 2dppx) {
-    .rdicon.app-logo, .nodedetail.server .nodedesc, .node_entry.server .nodedesc {
-        background-image: url("/images/rundeck2-icon-32.png");
-        background-size: 16px 16px;
-    }
-    }
-
-
-
-
-</style>
+    </style>
 
 
     <script language="javascript">
         function oopsEmbeddedLogin() {
 
-                document.location = '/?project=Generate_Update_packages&amp;id=8ba4992b-4509-4873-a1f2-29abc6a74e67&amp;page=jobs';
+            document.location = '/?project=Generate_Update_packages&amp;id=8ba4992b-4509-4873-a1f2-29abc6a74e67&amp;page=jobs';
 
         }
     </script>
 
 
-
-
     <!-- Placeholder for additional assets in footer -->
 
     <!-- END footer assets -->
-
-
-
 
 
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -190,28 +175,37 @@ Rundeck - Generate_Web_Packages
 
     <script src="/js/prototype/effects.js" type="text/javascript"></script>
 
-    <script type="text/javascript" src="/assets/menu/joboptions-580114192a7cc588a42de2c5968b6798.js" ></script>
-    <script type="text/javascript" src="/assets/menu/jobs-1ce668f580588e2e93a3313d3e5acfcd.js" ></script>
-    <script type="text/javascript" src="/assets/util/markdeep-a1d774e75547453fc2b89bcd18b56197.js" ></script>
-    <script type="text/javascript" src="/assets/jquery.autocomplete.min-41dbd7d9553077b137d5a707af1c7ae1.js" ></script>
-    <script id="jobParams" type="text/json">{"filter":null,"doNodeDispatch":false,"project":"Generate_Update_packages"}</script>
-    <script id="jobDetail" type="text/json">{"id":"8ba4992b-4509-4873-a1f2-29abc6a74e67","name":"Generate_Web_Packages","group":"WEB","project":"Generate_Update_packages"}</script>
+    <script type="text/javascript" src="/assets/menu/joboptions-580114192a7cc588a42de2c5968b6798.js"></script>
+    <script type="text/javascript" src="/assets/menu/jobs-1ce668f580588e2e93a3313d3e5acfcd.js"></script>
+    <script type="text/javascript" src="/assets/util/markdeep-a1d774e75547453fc2b89bcd18b56197.js"></script>
+    <script type="text/javascript" src="/assets/jquery.autocomplete.min-41dbd7d9553077b137d5a707af1c7ae1.js"></script>
+    <script id="jobParams" type="text/json">
+        {"filter":null,"doNodeDispatch":false,"project":"Generate_Update_packages"}
+    </script>
+    <script id="jobDetail" type="text/json">
+        {"id":"8ba4992b-4509-4873-a1f2-29abc6a74e67","name":"Generate_Web_Packages","group":"WEB","project":"Generate_Update_packages"}
+    </script>
     <script id="pageParams" type="text/json">{"project":"Generate_Update_packages"}</script>
 
-    <script id="i18nmessages" type="text/json">{"Node":"Node","Node.plural":"Nodes","option.value.required":"required","options.remote.dependency.missing.required":"Cannot load remote values for {0}: these required options are not set: {1}","option.default.button.title":"Click to use the default value","option.default.button.text":"default: {0}","option.select.choose.text":"-choose-"}</script><script>_loadMessages('i18nmessages');</script>
+    <script id="i18nmessages" type="text/json">
+        {"Node":"Node","Node.plural":"Nodes","option.value.required":"required","options.remote.dependency.missing.required":"Cannot load remote values for {0}: these required options are not set: {1}","option.default.button.title":"Click to use the default value","option.default.button.text":"default: {0}","option.select.choose.text":"-choose-"}
+    </script>
+    <script>_loadMessages('i18nmessages');</script>
     <script type="text/javascript">
         var pagehistory;
         var joboptions;
         var remotecontroller;
+
         function loadTab(anchor) {
             "use strict";
             var tabs = jQuery('#jobtabs').find('a[data-toggle="tab"]').map(function (i, e) {
                 return jQuery(e).attr('href');
             }).get();
-            if (tabs.indexOf(anchor)>=0) {
+            if (tabs.indexOf(anchor) >= 0) {
                 jQuery('a[href="' + anchor + '"]').tab('show');
             }
         }
+
         function init() {
             "use strict";
             var params = loadJsonData('jobParams');
@@ -233,10 +227,10 @@ Rundeck - Generate_Web_Packages
 
             var remoteoptionloader = new RemoteOptionLoader({
                 url: "/scheduledExecution/loadRemoteOptionValues?format=json",
-                id:"8ba4992b-4509-4873-a1f2-29abc6a74e67",
+                id: "8ba4992b-4509-4873-a1f2-29abc6a74e67",
                 fieldPrefix: "extra.option."
             });
-            remotecontroller = new RemoteOptionController({ loader: remoteoptionloader});
+            remotecontroller = new RemoteOptionController({loader: remoteoptionloader});
             remotecontroller.setupOptions(joboptions);
             remotecontroller.loadData(loadJsonData('remoteOptionData'));
 
@@ -258,11 +252,12 @@ Rundeck - Generate_Web_Packages
                 }
             });
 
-            PageActionHandlers.registerHandler('copy_other_project',function(el){
+            PageActionHandlers.registerHandler('copy_other_project', function (el) {
                 jQuery('#jobid').val(el.data('jobId'));
                 jQuery('#selectProject').modal();
             });
         }
+
         jQuery(init);
     </script>
 
@@ -271,89 +266,65 @@ Rundeck - Generate_Web_Packages
 <body>
 
 
-
-
-
-
-
 <nav class="navbar-overrides navbar navbar-default navbar-static-top" role="navigation">
 
     <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-    <a href="/"
-       title="Home" class="navbar-brand">
+        <a href="/"
+           title="Home" class="navbar-brand">
 
 
-
-
-        <i class="rdicon app-logo"></i>
+            <i class="rdicon app-logo"></i>
 
             Rundeck
 
-    </a>
+        </a>
     </div>
 
 
-
-
-
-
     <div class="container">
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
-    <ul class="nav navbar-nav">
-
-
-
-
-
-
-
-
-
-
-
-
+            <ul class="nav navbar-nav">
 
 
                 <li class="dropdown" id="projectSelect">
 
 
+                    <a href="#" class="dropdown-toggle " data-toggle="dropdown" aria-haspopup="true"
+                       aria-expanded="false">
+
+                        <span class="caret"></span><span class="sr-only">Toggle Dropdown</span></a>
+                    <ul class="dropdown-menu " role="menu" aria-labelledby="dLabel">
+                        <li class="dropdown-header">Projects</li>
 
 
-<a href="#" class="dropdown-toggle " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-
- <span class="caret"></span><span class="sr-only">Toggle Dropdown</span></a>
-<ul class="dropdown-menu " role="menu" aria-labelledby="dLabel" >
-    <li class="dropdown-header">Projects</li>
-
-
-
-            <li><a href="/resources/createProject" title="">
-                New Project
-                <b class="glyphicon glyphicon-plus"></b>
-            </a></li>
-            <li role="separator" class="divider"></li>
+                        <li><a href="/resources/createProject" title="">
+                            New Project
+                            <b class="glyphicon glyphicon-plus"></b>
+                        </a></li>
+                        <li role="separator" class="divider"></li>
 
 
+                        <li><a href="/?page=jobs&amp;project=Full_Update" title=""><i
+                                class="glyphicon glyphicon-tasks "></i>
+                            Full_Update
+                        </a></li>
 
-            <li><a href="/?page=jobs&amp;project=Full_Update" title=""><i class="glyphicon glyphicon-tasks "></i>
-                Full_Update
-            </a></li>
+                        <li><a href="/?page=jobs&amp;project=Generate_Update_packages" title=""><i
+                                class="glyphicon glyphicon-tasks "></i>
+                            Generate_Update_packages
+                        </a></li>
 
-            <li><a href="/?page=jobs&amp;project=Generate_Update_packages" title=""><i class="glyphicon glyphicon-tasks "></i>
-                Generate_Update_packages
-            </a></li>
-
-</ul>
+                    </ul>
 
                 </li>
-
 
 
                 <li id="projectHomeLink">
@@ -364,205 +335,147 @@ Rundeck - Generate_Web_Packages
                 </li>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                 <li class="active"><a href="/project/Generate_Update_packages/jobs" class=" toptab active">
                     Jobs
                 </a></li><!--
-        --><li class=""><a href="/project/Generate_Update_packages/nodes" class=" toptab ">
-                Nodes
-            </a></li><!--
-        --><li
+        -->
+                <li class=""><a href="/project/Generate_Update_packages/nodes" class=" toptab ">
+                    Nodes
+                </a></li><!--
+        -->
+                <li
                         class=""><a href="/project/Generate_Update_packages/command/run" class=" toptab ">
-                        Commands
-                    </a></li><!--
-        --><li class=""><a href="/project/Generate_Update_packages/activity" class=" toptab ">
-                Activity
-            </a></li>
+                    Commands
+                </a></li><!--
+        -->
+                <li class=""><a href="/project/Generate_Update_packages/activity" class=" toptab ">
+                    Activity
+                </a></li>
 
 
+                <li class="dropdown " id="projectAdmin">
+                    <a href="#" class="dropdown-toggle toptab " data-toggle="dropdown" aria-haspopup="true"
+                       aria-expanded="false">
+                        Project
 
 
-                    <li class="dropdown " id="projectAdmin">
-                        <a href="#" class="dropdown-toggle toptab " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Project
+                        <span class="caret"></span><span class="sr-only">Toggle Dropdown</span></a>
 
 
+                    <ul class="dropdown-menu " role="menu">
 
-                         <span class="caret"></span><span class="sr-only">Toggle Dropdown</span></a>
+                        <li class="dropdown-header">Project Admin</li>
 
+                        <li><a href="/project/Generate_Update_packages/configure" title="">Edit Configuration…</a></li>
 
+                        <li><a href="/project/Generate_Update_packages/admin/acls" title="">List ACLs</a></li>
 
+                        <li role="separator" class="divider"></li>
 
+                        <li><a href="/resources/editProjectFile?project=Generate_Update_packages&amp;filename=readme.md"
+                               title="">Edit Readme…</a></li>
 
+                        <li><a href="/resources/editProjectFile?project=Generate_Update_packages&amp;filename=motd.md"
+                               title="">Edit Message of the Day…</a></li>
 
+                        <li role="separator" class="divider"></li>
 
+                        <li><a href="/project/Generate_Update_packages/scm" title="">Setup SCM…</a></li>
 
+                        <li role="separator" class="divider"></li>
 
+                        <li><a href="/project/Generate_Update_packages/export" title="">Export Archive…</a></li>
 
+                        <li><a href="/project/Generate_Update_packages/import" title="">Import Archive…</a></li>
 
-<ul class="dropdown-menu " role="menu" >
+                        <li role="separator" class="divider"></li>
 
-    <li class="dropdown-header">Project Admin</li>
+                        <li><a href="/project/Generate_Update_packages/admin/delete" title=""><i
+                                class="glyphicon glyphicon-remove "></i> Delete Project…</a></li>
+                    </ul>
 
-    <li><a href="/project/Generate_Update_packages/configure" title="">Edit Configuration…</a></li>
+                </li>
 
-    <li><a href="/project/Generate_Update_packages/admin/acls" title="">List ACLs</a></li>
 
-    <li role="separator" class="divider"></li>
-
-    <li><a href="/resources/editProjectFile?project=Generate_Update_packages&amp;filename=readme.md" title="">Edit Readme…</a></li>
-
-    <li><a href="/resources/editProjectFile?project=Generate_Update_packages&amp;filename=motd.md" title="">Edit Message of the Day…</a></li>
-
-    <li role="separator" class="divider"></li>
-
-    <li><a href="/project/Generate_Update_packages/scm" title="">Setup SCM…</a></li>
-
-    <li role="separator" class="divider"></li>
-
-    <li><a href="/project/Generate_Update_packages/export" title="">Export Archive…</a></li>
-
-    <li><a href="/project/Generate_Update_packages/import" title="">Import Archive…</a></li>
-
-    <li role="separator" class="divider"></li>
-
-    <li><a href="/project/Generate_Update_packages/admin/delete" title=""><i class="glyphicon glyphicon-remove "></i> Delete Project…</a></li>
-</ul>
-
-                    </li>
-
-
-
-
-
-    </ul>
-
-
-
-
-
-
-
-
-  <ul class="nav navbar-nav navbar-right">
-
-
-
-
-        <li class="dropdown " id="appAdmin">
-            <a href="#" class="dropdown-toggle toptab " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="glyphicon glyphicon-cog "></i>
-             <span class="caret"></span><span class="sr-only">Toggle Dropdown</span></a>
-
-
-
-
-
-<ul class="dropdown-menu " role="menu" >
-
-    <li class="dropdown-header">System</li>
-    <li><a href="/menu/storage" title="">Key Storage</a></li>
-
-
-
-
-        <li><a href="/menu/systemConfig" title="">System Configuration</a></li>
-        <li><a href="/menu/acls" title="">Access Control</a></li>
-        <li><a href="/menu/systemInfo" title="">System Report</a></li>
-
-
-
-
-
-    <li><a href="/menu/plugins" title="">List Plugins</a></li>
-
-
-
-
-
-
-
-    <li role="separator" class="divider"></li>
-    <li><a href="/menu/executionMode" title="">
-
-            <i class="glyphicon glyphicon-play text-success"></i>
-
-
-        Execution Mode…
-    </a></li>
-
-
-</ul>
-
-        </li><!--
-            -->
-        <li class="dropdown">
-
-            <a href="#" class="dropdown-toggle " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="userLabel">
-                admin
-             <span class="caret"></span><span class="sr-only">Toggle Dropdown</span></a>
-            <ul class="dropdown-menu " role="menu" aria-labelledby="userLabel" >
-                <li><a href="/user/profile" title=""><i class="glyphicon glyphicon-user "></i> Profile</a></li>
-
-                <li role="separator" class="divider"></li>
-                <li><a href="/user/logout" title=""><i class="glyphicon glyphicon-remove "></i> Logout</a></li>
             </ul>
-        </li>
 
-    </ul>
-    </div>
+
+            <ul class="nav navbar-nav navbar-right">
+
+
+                <li class="dropdown " id="appAdmin">
+                    <a href="#" class="dropdown-toggle toptab " data-toggle="dropdown" aria-haspopup="true"
+                       aria-expanded="false">
+                        <i class="glyphicon glyphicon-cog "></i>
+                        <span class="caret"></span><span class="sr-only">Toggle Dropdown</span></a>
+
+
+                    <ul class="dropdown-menu " role="menu">
+
+                        <li class="dropdown-header">System</li>
+                        <li><a href="/menu/storage" title="">Key Storage</a></li>
+
+
+                        <li><a href="/menu/systemConfig" title="">System Configuration</a></li>
+                        <li><a href="/menu/acls" title="">Access Control</a></li>
+                        <li><a href="/menu/systemInfo" title="">System Report</a></li>
+
+
+                        <li><a href="/menu/plugins" title="">List Plugins</a></li>
+
+
+                        <li role="separator" class="divider"></li>
+                        <li><a href="/menu/executionMode" title="">
+
+                            <i class="glyphicon glyphicon-play text-success"></i>
+
+
+                            Execution Mode…
+                        </a></li>
+
+
+                    </ul>
+
+                </li><!--
+            -->
+                <li class="dropdown">
+
+                    <a href="#" class="dropdown-toggle " data-toggle="dropdown" aria-haspopup="true"
+                       aria-expanded="false" id="userLabel">
+                        admin
+                        <span class="caret"></span><span class="sr-only">Toggle Dropdown</span></a>
+                    <ul class="dropdown-menu " role="menu" aria-labelledby="userLabel">
+                        <li><a href="/user/profile" title=""><i class="glyphicon glyphicon-user "></i> Profile</a></li>
+
+                        <li role="separator" class="divider"></li>
+                        <li><a href="/user/logout" title=""><i class="glyphicon glyphicon-remove "></i> Logout</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+        </div>
     </div>
 </nav>
 
 <div class="container">
 
 
+    <div class="row">
 
 
-<div class="row">
+        <div class="col-sm-12 jobInfoSection">
+
+            <section>
 
 
+                <a href="/project/Generate_Update_packages/jobs/WEB" class="secondary" title="View Jobs in this group">
+                    <b class="glyphicon glyphicon-folder-close"></b>
+                    WEB</a>
 
 
-<div class="col-sm-12 jobInfoSection">
+            </section>
 
-    <section>
-
-
-
-
-
-            <a href="/project/Generate_Update_packages/jobs/WEB" class="secondary" title="View Jobs in this group">
-                <b class="glyphicon glyphicon-folder-close"></b>
-                WEB</a>
-
-
-
-    </section>
-
-<section class="section-space" id="jobInfo_">
+            <section class="section-space" id="jobInfo_">
     <span class=" h3">
         <a href="/project/Generate_Update_packages/job/show/8ba4992b-4509-4873-a1f2-29abc6a74e67" class="primary">
             <i class="glyphicon glyphicon-book"></i>
@@ -570,634 +483,638 @@ Rundeck - Generate_Web_Packages
     </span>
 
 
+                <div class="btn-group">
 
+                    <button type="button" class="btn  btn-default btn-sm btn-link dropdown-toggle"
+                            data-toggle="dropdown"
+                            aria-expanded="false">
 
+                        <i class="glyphicon glyphicon-list"></i>
 
 
+                        Action
 
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
 
 
+                        <li>
+                            <a href="/project/Generate_Update_packages/job/edit/8ba4992b-4509-4873-a1f2-29abc6a74e67"
+                               title="Edit this Job" class="">
+                                <i class="glyphicon glyphicon-edit"></i>
+                                Edit this Job&hellip;
+                            </a>
+                        </li>
 
 
+                        <li>
+                            <a href="/project/Generate_Update_packages/job/copy/8ba4992b-4509-4873-a1f2-29abc6a74e67"
+                               title="Duplicate Job" class="">
+                                <i class="glyphicon glyphicon-plus"></i>
+                                Duplicate this Job&hellip;
+                            </a>
+                        </li>
 
 
+                        <li>
+                            <a href="/scheduledExecution/copyanother" title="Duplicate Job"
+                               data-job-id="8ba4992b-4509-4873-a1f2-29abc6a74e67" data-action="copy_other_project"
+                               class="page_action">
+                                <i class="glyphicon glyphicon-plus"></i>
+                                Duplicate this Job to other Project&hellip;
+                            </a>
 
+                        </li>
 
 
+                        <li class="divider"></li>
 
+                        <li>
+                            <a href="/project/Generate_Update_packages/job/delete/8ba4992b-4509-4873-a1f2-29abc6a74e67"
+                               class="page_action" data-action="job_delete_single"
+                               data-job-id="8ba4992b-4509-4873-a1f2-29abc6a74e67" title="Delete this Job">
+                                <b class="glyphicon glyphicon-remove-circle"></b>
+                                Delete this Job&hellip;
+                            </a>
+                        </li>
 
-<div class="btn-group">
 
-    <button type="button" class="btn  btn-default btn-sm btn-link dropdown-toggle"
-            data-toggle="dropdown"
-            aria-expanded="false">
+                        <li class="divider"></li>
 
-        <i class="glyphicon glyphicon-list"></i>
 
+                        <li>
 
-            Action
+                            <a href="/project/Generate_Update_packages/job/flipExecutionEnabled/8ba4992b-4509-4873-a1f2-29abc6a74e67?executionEnabled=false"
+                               data-job-id="8ba4992b-4509-4873-a1f2-29abc6a74e67" class="page_action"
+                               data-action="disable_job_execution_single" title="Disable Execution">
+                                <b class="glyphicon glyphicon-unchecked"></b>
+                                Disable Execution
+                            </a>
 
-        <span class="caret"></span>
-    </button>
-    <ul class="dropdown-menu" role="menu">
+                        </li>
 
 
+                        <li class="divider"></li>
 
+                        <li>
+                            <a href="/project/Generate_Update_packages/job/show/8ba4992b-4509-4873-a1f2-29abc6a74e67?format=xml"
+                               title="Download Job definition in XML">
+                                <b class="glyphicon glyphicon-file"></b>
+                                Download Job definition in XML
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/project/Generate_Update_packages/job/show/8ba4992b-4509-4873-a1f2-29abc6a74e67?format=yaml"
+                               title="Download Job definition in YAML">
+                                <b class="glyphicon glyphicon-file"></b>
+                                Download Job definition in YAML
+                            </a>
+                        </li>
 
 
-
-
-
-
-
-
-
-
-
-    <li>
-        <a href="/project/Generate_Update_packages/job/edit/8ba4992b-4509-4873-a1f2-29abc6a74e67" title="Edit this Job" class="">
-            <i class="glyphicon glyphicon-edit"></i>
-            Edit this Job&hellip;
-        </a>
-    </li>
-
-
-    <li>
-        <a href="/project/Generate_Update_packages/job/copy/8ba4992b-4509-4873-a1f2-29abc6a74e67" title="Duplicate Job" class="">
-            <i class="glyphicon glyphicon-plus"></i>
-            Duplicate this Job&hellip;
-        </a>
-    </li>
-
-
-    <li>
-        <a href="/scheduledExecution/copyanother" title="Duplicate Job" data-job-id="8ba4992b-4509-4873-a1f2-29abc6a74e67" data-action="copy_other_project" class="page_action">
-            <i class="glyphicon glyphicon-plus"></i>
-            Duplicate this Job to other Project&hellip;
-        </a>
-
-    </li>
-
-
-
-
-
-            <li class="divider"></li>
-
-        <li>
-            <a href="/project/Generate_Update_packages/job/delete/8ba4992b-4509-4873-a1f2-29abc6a74e67" class="page_action" data-action="job_delete_single" data-job-id="8ba4992b-4509-4873-a1f2-29abc6a74e67" title="Delete this Job">
-                <b class="glyphicon glyphicon-remove-circle"></b>
-                Delete this Job&hellip;
-            </a>
-        </li>
-
-
-
-
-    <li class="divider"></li>
-
-
-
-
-    <li>
-
-            <a href="/project/Generate_Update_packages/job/flipExecutionEnabled/8ba4992b-4509-4873-a1f2-29abc6a74e67?executionEnabled=false" data-job-id="8ba4992b-4509-4873-a1f2-29abc6a74e67" class="page_action" data-action="disable_job_execution_single" title="Disable Execution">
-                <b class="glyphicon glyphicon-unchecked"></b>
-                Disable Execution
-            </a>
-
-    </li>
-
-
-
-
-        <li class="divider"></li>
-
-    <li><a href="/project/Generate_Update_packages/job/show/8ba4992b-4509-4873-a1f2-29abc6a74e67?format=xml" title="Download Job definition in XML">
-        <b class="glyphicon glyphicon-file"></b>
-        Download Job definition in XML
-    </a>
-    </li>
-    <li>
-        <a href="/project/Generate_Update_packages/job/show/8ba4992b-4509-4873-a1f2-29abc6a74e67?format=yaml" title="Download Job definition in YAML">
-            <b class="glyphicon glyphicon-file"></b>
-            Download Job definition in YAML
-        </a>
-    </li>
-
-
-
-
-
-    </ul>
-</div>
-
-
-
-    <script type="text/javascript">
-
-        jQuery(function(){
-            //register modal as the handler for 'job_delete_single'
-            PageActionHandlers.registerModalHandler('enable_job_execution_single','#jobexectoggle',{});
-            PageActionHandlers.registerModalHandler('disable_job_execution_single','#jobexectoggle',{});
-        });
-
-</script>
-
-    <div class="modal" id="jobexectoggle" tabindex="-1" role="dialog"
-         aria-labelledby="toggleexecjobtitle" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal"
-                            aria-hidden="true">&times;</button>
-                    <h4 class="modal-title" id="toggleexecjobtitle">
-
-                            Disable Job Execution
-
-                    </h4>
+                    </ul>
                 </div>
 
-                <form action="/project/Generate_Update_packages/job/flipExecutionEnabled/8ba4992b-4509-4873-a1f2-29abc6a74e67?returnToJob=true" method="post" class="form form-horizontal" >
-<input type="hidden" name="SYNCHRONIZER_TOKEN" value="cd328ec8af7196b5ae9f48f27e7c14977bd8d39eb7a33b4ce4407183566aa3dd" id="SYNCHRONIZER_TOKEN" />
-<input type="hidden" name="SYNCHRONIZER_URI" value="/project/Generate_Update_packages/job/show/8ba4992b-4509-4873-a1f2-29abc6a74e67" id="SYNCHRONIZER_URI" />
 
-                    <div class="modal-body">
-                        <div class="form-group">
-                            <label class="col-sm-2 control-label">
-                                Job Name
-                            </label>
+                <script type="text/javascript">
 
-                            <div class="col-sm-10">
-                                <p class="form-control-static text-info">Generate_Web_Packages</p>
+                    jQuery(function () {
+                        //register modal as the handler for 'job_delete_single'
+                        PageActionHandlers.registerModalHandler('enable_job_execution_single', '#jobexectoggle', {});
+                        PageActionHandlers.registerModalHandler('disable_job_execution_single', '#jobexectoggle', {});
+                    });
+
+                </script>
+
+                <div class="modal" id="jobexectoggle" tabindex="-1" role="dialog"
+                     aria-labelledby="toggleexecjobtitle" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal"
+                                        aria-hidden="true">&times;
+                                </button>
+                                <h4 class="modal-title" id="toggleexecjobtitle">
+
+                                    Disable Job Execution
+
+                                </h4>
                             </div>
+
+                            <form action="/project/Generate_Update_packages/job/flipExecutionEnabled/8ba4992b-4509-4873-a1f2-29abc6a74e67?returnToJob=true"
+                                  method="post" class="form form-horizontal">
+                                <input type="hidden" name="SYNCHRONIZER_TOKEN"
+                                       value="cd328ec8af7196b5ae9f48f27e7c14977bd8d39eb7a33b4ce4407183566aa3dd"
+                                       id="SYNCHRONIZER_TOKEN"/>
+                                <input type="hidden" name="SYNCHRONIZER_URI"
+                                       value="/project/Generate_Update_packages/job/show/8ba4992b-4509-4873-a1f2-29abc6a74e67"
+                                       id="SYNCHRONIZER_URI"/>
+
+                                <div class="modal-body">
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">
+                                            Job Name
+                                        </label>
+
+                                        <div class="col-sm-10">
+                                            <p class="form-control-static text-info">Generate_Web_Packages</p>
+                                        </div>
+                                    </div>
+
+
+                                    Disable Executions for this Job?
+
+
+                                </div>
+
+                                <div class="modal-footer">
+                                    <input type="hidden" name="id" value="8ba4992b-4509-4873-a1f2-29abc6a74e67"
+                                           id="id"/>
+                                    <input type="hidden" name="executionEnabled" value="false" id="executionEnabled"/>
+                                    <button type="submit" class="btn btn-default btn-sm "
+                                            data-dismiss="modal">
+                                        Cancel
+                                    </button>
+
+                                    <input type="submit" value="Disable Execution" class="btn btn-danger btn-sm"/>
+
+                                </div>
+                            </form>
                         </div>
-
-
-                            Disable Executions for this Job?
-
-
                     </div>
+                </div>
 
-                    <div class="modal-footer">
-                        <input type="hidden" name="id" value="8ba4992b-4509-4873-a1f2-29abc6a74e67" id="id" />
-                        <input type="hidden" name="executionEnabled" value="false" id="executionEnabled" />
-                        <button type="submit" class="btn btn-default btn-sm "
-                                data-dismiss="modal">
-                            Cancel
-                        </button>
 
-                            <input type="submit" value="Disable Execution" class="btn btn-danger btn-sm"/>
+                <script type="text/javascript">
 
+                    jQuery(function () {
+                        //register modal as the handler for 'job_delete_single'
+                        PageActionHandlers.registerModalHandler('job_delete_single', '#jobdelete', {});
+                    });
+
+                </script>
+
+                <div class="modal" id="jobdelete" tabindex="-1" role="dialog"
+                     aria-labelledby="deletejobtitle" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal"
+                                        aria-hidden="true">&times;
+                                </button>
+                                <h4 class="modal-title" id="deletejobtitle">
+                                    Really delete this Job?
+                                </h4>
+                            </div>
+
+                            <form action="/scheduledExecution/delete" method="post" class="form form-horizontal">
+                                <input type="hidden" name="SYNCHRONIZER_TOKEN"
+                                       value="5e834d64b198167fafba1de6e1a535577f1291183496a06cbaf6cdcbaca53186"
+                                       id="SYNCHRONIZER_TOKEN"/>
+                                <input type="hidden" name="SYNCHRONIZER_URI"
+                                       value="/project/Generate_Update_packages/job/show/8ba4992b-4509-4873-a1f2-29abc6a74e67"
+                                       id="SYNCHRONIZER_URI"/>
+                                <div class="modal-body">
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">
+                                            Job Name
+                                        </label>
+
+                                        <div class="col-sm-10">
+                                            <p class="form-control-static text-info">Generate_Web_Packages</p>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <div class="col-sm-10 col-sm-offset-2">
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="deleteExecutions"
+                                                       value="true"/>
+                                                Delete all executions of this Job
+                                            </label>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+
+                                <div class="modal-footer">
+                                    <input type="hidden" name="id" value="8ba4992b-4509-4873-a1f2-29abc6a74e67"
+                                           id="id"/>
+                                    <button type="submit" class="btn btn-default btn-sm "
+                                            data-dismiss="modal">
+                                        Cancel
+                                    </button>
+                                    <input type="submit" value="Delete"
+                                           class="btn btn-danger btn-sm"/>
+                                </div>
+                            </form>
+                        </div>
                     </div>
-                </form>
-            </div>
+                </div>
+
+
+            </section>
+            <section class="section-space">
+
+
+                <span class="h4 text-muted"></span>
+
+
+            </section>
         </div>
+
     </div>
 
 
-
-<script type="text/javascript">
-
-jQuery(function(){
-   //register modal as the handler for 'job_delete_single'
-    PageActionHandlers.registerModalHandler('job_delete_single','#jobdelete',{});
-});
-
-</script>
-
-        <div class="modal" id="jobdelete" tabindex="-1" role="dialog"
-             aria-labelledby="deletejobtitle" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal"
-                                aria-hidden="true">&times;</button>
-                        <h4 class="modal-title" id="deletejobtitle">
-                            Really delete this Job?
-                        </h4>
-                    </div>
-
-                    <form action="/scheduledExecution/delete" method="post" class="form form-horizontal" >
-<input type="hidden" name="SYNCHRONIZER_TOKEN" value="5e834d64b198167fafba1de6e1a535577f1291183496a06cbaf6cdcbaca53186" id="SYNCHRONIZER_TOKEN" />
-<input type="hidden" name="SYNCHRONIZER_URI" value="/project/Generate_Update_packages/job/show/8ba4992b-4509-4873-a1f2-29abc6a74e67" id="SYNCHRONIZER_URI" />
-                        <div class="modal-body">
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label">
-                                    Job Name
-                                </label>
-
-                                <div class="col-sm-10">
-                                    <p class="form-control-static text-info">Generate_Web_Packages</p>
-                                </div>
-                            </div>
-
-
-                                <div class="form-group">
-                                    <div class="col-sm-10 col-sm-offset-2">
-                                        <label class="checkbox">
-                                            <input type="checkbox" name="deleteExecutions"
-                                                   value="true"/>
-                                            Delete all executions of this Job
-                                        </label>
-                                    </div>
-                                </div>
-
-
-                        </div>
-
-                        <div class="modal-footer">
-                            <input type="hidden" name="id" value="8ba4992b-4509-4873-a1f2-29abc6a74e67" id="id" />
-                            <button type="submit" class="btn btn-default btn-sm "
-                                    data-dismiss="modal">
-                                Cancel
-                            </button>
-                            <input type="submit" value="Delete"
-                                   class="btn btn-danger btn-sm"/>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-
-
-
-
-
-
-</section>
-<section class="section-space">
-
-
-
-
-
-
-
-
-
-    <span class="h4 text-muted"></span>
-
-
-
-</section>
-</div>
-
-</div>
-
-
-
-
-
-<div class="row">
-    <div class="col-sm-12">
-        <ul class="nav nav-tabs" id="jobtabs">
+    <div class="row">
+        <div class="col-sm-12">
+            <ul class="nav nav-tabs" id="jobtabs">
 
                 <li class="active"><a href="#runjob" data-toggle="tab">Prepare and Run…</a></li>
 
-            <li class=""><a href="#definition"
-                                                        data-toggle="tab">Definition</a></li>
+                <li class=""><a href="#definition"
+                                data-toggle="tab">Definition</a></li>
 
-        </ul>
+            </ul>
 
-        <div class="tab-content">
+            <div class="tab-content">
 
                 <div class="tab-pane active" id="runjob">
 
 
-<div class="row">
-<div class="col-sm-12 ">
+                    <div class="row">
+                        <div class="col-sm-12 ">
 
-<form action="/project/Generate_Update_packages/job/index" method="post" class="form-horizontal" role="form" enctype="multipart/form-data" >
-<input type="hidden" name="SYNCHRONIZER_TOKEN" value="ec2417eb23734dff6480819222ad90f7140ccd1502646cb19def346033ebacb5" id="SYNCHRONIZER_TOKEN" />
-<input type="hidden" name="SYNCHRONIZER_URI" value="/project/Generate_Update_packages/job/show/8ba4992b-4509-4873-a1f2-29abc6a74e67" id="SYNCHRONIZER_URI" />
-    <!-- BEGIN: firefox hack https://bugzilla.mozilla.org/show_bug.cgi?id=1119063 -->
-    <input type="text" style="display:none" class="ixnay">
-    <input type="password" style="display:none" class="ixnay">
-    <script type="text/javascript">
+                            <form action="/project/Generate_Update_packages/job/index" method="post"
+                                  class="form-horizontal" role="form" enctype="multipart/form-data">
+                                <input type="hidden" name="SYNCHRONIZER_TOKEN"
+                                       value="ec2417eb23734dff6480819222ad90f7140ccd1502646cb19def346033ebacb5"
+                                       id="SYNCHRONIZER_TOKEN"/>
+                                <input type="hidden" name="SYNCHRONIZER_URI"
+                                       value="/project/Generate_Update_packages/job/show/8ba4992b-4509-4873-a1f2-29abc6a74e67"
+                                       id="SYNCHRONIZER_URI"/>
+                                <!-- BEGIN: firefox hack https://bugzilla.mozilla.org/show_bug.cgi?id=1119063 -->
+                                <input type="text" style="display:none" class="ixnay">
+                                <input type="password" style="display:none" class="ixnay">
+                                <script type="text/javascript">
 
-    jQuery(function(){
-        var nay=function(){jQuery('.ixnay').val('');},ix=setTimeout;
-        nay(); ix(nay,50); ix(nay,200); ix(nay, 1000);
-    });
+                                    jQuery(function () {
+                                        var nay = function () {
+                                            jQuery('.ixnay').val('');
+                                        }, ix = setTimeout;
+                                        nay();
+                                        ix(nay, 50);
+                                        ix(nay, 200);
+                                        ix(nay, 1000);
+                                    });
 
-</script>
+                                </script>
 
-    <!-- END: firefox hack -->
+                                <!-- END: firefox hack -->
 
-<input id='runAtTime' type='hidden' name='runAtTime' value='' />
+                                <input id='runAtTime' type='hidden' name='runAtTime' value=''/>
 
-<div class="panel panel-default panel-tab-content panel-modal-content">
-
-
-    <script id="filterParamsJSON" type="text/json">{"filterName":null,"filter":null,"filterAll":false}</script>
-<script lang="text/javascript">
-    function init() {
-        var pageParams = loadJsonData('pageParams');
-        jQuery('body').on('click', '.nodefilterlink', function (evt) {
-            evt.preventDefault();
-            nodeFilter.selectNodeFilterLink(this);
-            $('filterradio').checked=true;
-        });
-        jQuery('#nodesContent').on('click', '.closeoutput', function (evt) {
-            evt.preventDefault();
-            closeOutputArea();
-        });
+                                <div class="panel panel-default panel-tab-content panel-modal-content">
 
 
-        //setup node filters knockout bindings
-        var filterParams = loadJsonData('filterParamsJSON');
-
-    }
-    jQuery(document).ready(init);
-</script>
-    <div class=" collapse" id="queryFilterHelp">
-        <div class="help-block">
-
-
-<strong>Select nodes by name:</strong>
-<p>
-    <code>mynode1 mynode2</code>
-</p>
-<p>
-    This will select both nodes.
-</p>
-
-<strong>Filter nodes by attribute value:</strong>
-<ul>
-    <li>Include: <code>attribute: value</code></li>
-
-    <li>Exclude: <code>!attribute: value</code></li>
-</ul>
+                                    <script id="filterParamsJSON" type="text/json">
+                                        {"filterName":null,"filter":null,"filterAll":false}
+                                    </script>
+                                    <script lang="text/javascript">
+                                        function init() {
+                                            var pageParams = loadJsonData('pageParams');
+                                            jQuery('body').on('click', '.nodefilterlink', function (evt) {
+                                                evt.preventDefault();
+                                                nodeFilter.selectNodeFilterLink(this);
+                                                $('filterradio').checked = true;
+                                            });
+                                            jQuery('#nodesContent').on('click', '.closeoutput', function (evt) {
+                                                evt.preventDefault();
+                                                closeOutputArea();
+                                            });
 
 
-<strong>Use Regular Expressions:</strong>
-<p>
-    <code>hostname: dev(\d+).test.com</code>.
-</p>
+                                            //setup node filters knockout bindings
+                                            var filterParams = loadJsonData('filterParamsJSON');
 
-<strong>Regex syntax checking:</strong>
-<p>
-    <code>attribute: /regex/</code>
-</p>
-<p>
-    <code>attribute: /regex/</code>
-</p>
+                                        }
 
-<strong>Examples:</strong>
-<dl>
-    <dt>All nodes</dt>
-    <dd><a href="/project/Generate_Update_packages/nodes?filter=.*" class="nodefilterlink" data-node-filter="name: .*">name: .*</a> </dd>
-    <dt>Nodes tagged "production"</dt>
-    <dd><a href="/project/Generate_Update_packages/nodes?filter=tags%3A+production" class="nodefilterlink" data-node-filter="tags: production">tags: production</a> </dd>
-    <dt>Unix nodes</dt>
-    <dd><a href="/project/Generate_Update_packages/nodes?filter=osFamily%3A+unix" class="nodefilterlink" data-node-filter="osFamily: unix">osFamily: unix</a> </dd>
-</dl>
-
-        </div>
-    </div>
-<div class="list-group list-group-tab-content">
-<div class="list-group-item">
-<div class="row">
-<div class="col-sm-9">
+                                        jQuery(document).ready(init);
+                                    </script>
+                                    <div class=" collapse" id="queryFilterHelp">
+                                        <div class="help-block">
 
 
+                                            <strong>Select nodes by name:</strong>
+                                            <p>
+                                                <code>mynode1 mynode2</code>
+                                            </p>
+                                            <p>
+                                                This will select both nodes.
+                                            </p>
+
+                                            <strong>Filter nodes by attribute value:</strong>
+                                            <ul>
+                                                <li>Include: <code>attribute: value</code></li>
+
+                                                <li>Exclude: <code>!attribute: value</code></li>
+                                            </ul>
 
 
+                                            <strong>Use Regular Expressions:</strong>
+                                            <p>
+                                                <code>hostname: dev(\d+).test.com</code>.
+                                            </p>
+
+                                            <strong>Regex syntax checking:</strong>
+                                            <p>
+                                                <code>attribute: /regex/</code>
+                                            </p>
+                                            <p>
+                                                <code>attribute: /regex/</code>
+                                            </p>
+
+                                            <strong>Examples:</strong>
+                                            <dl>
+                                                <dt>All nodes</dt>
+                                                <dd><a href="/project/Generate_Update_packages/nodes?filter=.*"
+                                                       class="nodefilterlink" data-node-filter="name: .*">name: .*</a>
+                                                </dd>
+                                                <dt>Nodes tagged "production"</dt>
+                                                <dd>
+                                                    <a href="/project/Generate_Update_packages/nodes?filter=tags%3A+production"
+                                                       class="nodefilterlink" data-node-filter="tags: production">tags:
+                                                        production</a></dd>
+                                                <dt>Unix nodes</dt>
+                                                <dd>
+                                                    <a href="/project/Generate_Update_packages/nodes?filter=osFamily%3A+unix"
+                                                       class="nodefilterlink" data-node-filter="osFamily: unix">osFamily:
+                                                        unix</a></dd>
+                                            </dl>
+
+                                        </div>
+                                    </div>
+                                    <div class="list-group list-group-tab-content">
+                                        <div class="list-group-item">
+                                            <div class="row">
+                                                <div class="col-sm-9">
 
 
+                                                    <input type="hidden" name="id"
+                                                           value="8ba4992b-4509-4873-a1f2-29abc6a74e67"/>
+                                                    <div class="note error" style="display: none" id="editerror">
+
+                                                    </div>
 
 
+                                                    <div id="optionSelect">
 
 
+                                                        <input type="hidden" name="extra.argString" value=""
+                                                               id="extra.argString"/>
+
+                                                        <script id="jobOptionData" type="text/json">
+                                                            {"options":[{"name":"app","required":true,"description":null,"descriptionHtml":null,"enforced":false,"isDate":false,"dateFormat":null,"optionType":null,"values":["comm-quartz","eshop-app","eshop-bg","eshop-fg","eshop-lifePay","eshop-pay","eshop-store","eshop-wap","mkt-bg","mkt-web","point"],"defaultValue":null,"defaultStoragePath":null,"multivalued":null,"defaultMultiValues":[],"multivalueAllSelected":null,"delimiter":null,"selectedMultiValues":null,"fieldName":"extra.option.app","fieldId":"5ddba872_app","hasError":null,"hasRemote":false,"optionDepsMet":true,"secureInput":false,"hasExtended":true,"value":""}]}
+                                                        </script>
+
+                                                        <script id="remoteOptionData" type="text/json">
+                                                            {"options":{"app":{"optionDependencies":null,"optionDeps":null,"localOption":true}},"optionsDependenciesCyclic":null}
+                                                        </script>
 
 
-<input type="hidden" name="id" value="8ba4992b-4509-4873-a1f2-29abc6a74e67"/>
-<div class="note error" style="display: none" id="editerror">
-
-</div>
-
-
-<div id="optionSelect">
-
-
-
-
-
-
-
-
-    <input type="hidden" name="extra.argString" value="" id="extra.argString" />
-
-    <script id="jobOptionData" type="text/json">{"options":[{"name":"app","required":true,"description":null,"descriptionHtml":null,"enforced":false,"isDate":false,"dateFormat":null,"optionType":null,"values":["comm-quartz","eshop-app","eshop-bg","eshop-fg","eshop-lifePay","eshop-pay","eshop-store","eshop-wap","mkt-bg","mkt-web","point"],"defaultValue":null,"defaultStoragePath":null,"multivalued":null,"defaultMultiValues":[],"multivalueAllSelected":null,"delimiter":null,"selectedMultiValues":null,"fieldName":"extra.option.app","fieldId":"5ddba872_app","hasError":null,"hasRemote":false,"optionDepsMet":true,"secureInput":false,"hasExtended":true,"value":""}]}</script>
-
-    <script id="remoteOptionData" type="text/json">{"options":{"app":{"optionDependencies":null,"optionDeps":null,"localOption":true}},"optionsDependenciesCyclic":null}</script>
-
-
-
-    <div id="_commandOptions" data-bind="foreach: {data: options(), as: 'option' }">
-        <div class="form-group " data-bind="
+                                                        <div id="_commandOptions"
+                                                             data-bind="foreach: {data: options(), as: 'option' }">
+                                                            <div class="form-group " data-bind="
     css: { 'has-warning': hasError, 'remote': hasRemote }
     ">
-            <label class="remoteoptionfield col-sm-2 control-label"
-                   data-bind="attr: { for: fieldId }, click: reloadRemoteValues">
+                                                                <label class="remoteoptionfield col-sm-2 control-label"
+                                                                       data-bind="attr: { for: fieldId }, click: reloadRemoteValues">
                 <span data-bind="if: hasRemote()">
                     <span data-bind="if: loading() ">
-                        <img width="16px" height="16px" src="/assets/spinner-gray-c49d433c4e7a19cbf6769f831ffbe23d.gif"/>
+                        <img width="16px" height="16px"
+                             src="/assets/spinner-gray-c49d433c4e7a19cbf6769f831ffbe23d.gif"/>
                     </span>
                     <span class="remotestatus"
                           data-bind=" css: {ok: !remoteError() && remoteValues().length>0 && remoteValues, error: remoteError()}">
                     </span>
                     <span data-bind="text: name"></span>
                 </span>
-                <span data-bind="if: !hasRemote()">
+                                                                    <span data-bind="if: !hasRemote()">
                     <span data-bind="text: name"></span>
                 </span>
-            </label>
+                                                                </label>
 
-            <div class=" col-sm-9">
-
-
+                                                                <div class=" col-sm-9">
 
 
+                                                                    <div class="row" data-bind="if: option">
+                                                                        <!-- ko if: isFileType -->
+                                                                        <div class="col-sm-12">
+                                                                            <input type="file" name="" id=""
+                                                                                   data-bind="attr: {name: fieldName, id: fieldId}"
+                                                                                   class="optionvaluesfield  form-control">
+                                                                        </div>
+                                                                        <!-- /ko -->
+                                                                        <!-- ko if: !isFileType() -->
 
-
-<div class="row" data-bind="if: option">
-    <!-- ko if: isFileType -->
-        <div class="col-sm-12">
-            <input type="file" name="" id="" data-bind="attr: {name: fieldName, id: fieldId}" class="optionvaluesfield  form-control">
-        </div>
-    <!-- /ko -->
-    <!-- ko if: !isFileType() -->
-
-    <div data-bind="if: hasTextfield">
-        <div data-bind="css: {'col-sm-8': hasExtended(), 'col-sm-12': !hasExtended() }">
-            <div data-bind="if: secureInput()" class="input-group">
-                <input type="password" name="-" data-bind="value: value, attr: {name: fieldName, id: fieldId}" class="optionvaluesfield  form-control" value="" autocomplete="new-password" size="40" id="-" />
-                <!-- ko if: defaultStoragePath -->
-                    <span class=" has_tooltip input-group-addon"
-                        data-bind="bootstrapTooltip: true"
-                          data-placement="bottom"
-                          data-container="body"
-                          title="A default value will be loaded from Key Storage">
+                                                                        <div data-bind="if: hasTextfield">
+                                                                            <div data-bind="css: {'col-sm-8': hasExtended(), 'col-sm-12': !hasExtended() }">
+                                                                                <div data-bind="if: secureInput()"
+                                                                                     class="input-group">
+                                                                                    <input type="password" name="-"
+                                                                                           data-bind="value: value, attr: {name: fieldName, id: fieldId}"
+                                                                                           class="optionvaluesfield  form-control"
+                                                                                           value=""
+                                                                                           autocomplete="new-password"
+                                                                                           size="40" id="-"/>
+                                                                                    <!-- ko if: defaultStoragePath -->
+                                                                                    <span class=" has_tooltip input-group-addon"
+                                                                                          data-bind="bootstrapTooltip: true"
+                                                                                          data-placement="bottom"
+                                                                                          data-container="body"
+                                                                                          title="A default value will be loaded from Key Storage">
                         <i class="glyphicon glyphicon-lock "></i>
                     </span>
-                <!-- /ko -->
-            </div>
+                                                                                    <!-- /ko -->
+                                                                                </div>
 
-            <div data-bind="if: !secureInput()">
-                <div data-bind="if: isDate()">
+                                                                                <div data-bind="if: !secureInput()">
+                                                                                    <div data-bind="if: isDate()">
 
-                    <div class='input-group date' data-bind="datetimepicker: value, dateFormat: dateFormat, css: {'has-error': dateFormatErr}">
+                                                                                        <div class='input-group date'
+                                                                                             data-bind="datetimepicker: value, dateFormat: dateFormat, css: {'has-error': dateFormatErr}">
                         <span class="input-group-addon has_tooltip">
                             <span class="glyphicon glyphicon-calendar"></span>
                         </span>
-                        <input type="datetime" name="-"
-                               data-bind="value:value, attr: {name: fieldName, id: fieldId,title:  dateFormat},bootstrapTooltip: dateFormat"
-                               class="optionvaluesfield form-control"
-                               value=""
-                               size="40"
-                        />
-                    </div>
-                </div>
-                <div data-bind="if: !isDate()">
-                    <input type="text" name="-" data-bind="value: value, attr: {name: fieldName, id: fieldId}" class="optionvaluesfield form-control" value="" size="40" id="-" />
-                </div>
-            </div>
-        </div>
-    </div>
+                                                                                            <input type="datetime"
+                                                                                                   name="-"
+                                                                                                   data-bind="value:value, attr: {name: fieldName, id: fieldId,title:  dateFormat},bootstrapTooltip: dateFormat"
+                                                                                                   class="optionvaluesfield form-control"
+                                                                                                   value=""
+                                                                                                   size="40"
+                                                                                            />
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div data-bind="if: !isDate()">
+                                                                                        <input type="text" name="-"
+                                                                                               data-bind="value: value, attr: {name: fieldName, id: fieldId}"
+                                                                                               class="optionvaluesfield form-control"
+                                                                                               value="" size="40"
+                                                                                               id="-"/>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
 
-    <div data-bind="if: !hasTextfield() && enforced() && remoteError()">
-        <input type="hidden" data-bind="value: value, attr: {name: fieldName}" value=""/>
-    </div>
+                                                                        <div data-bind="if: !hasTextfield() && enforced() && remoteError()">
+                                                                            <input type="hidden"
+                                                                                   data-bind="value: value, attr: {name: fieldName}"
+                                                                                   value=""/>
+                                                                        </div>
 
-    <div data-bind="if: hasExtended()">
+                                                                        <div data-bind="if: hasExtended()">
 
-        <div data-bind="css: {'col-sm-4': hasTextfield(), 'col-sm-12': !hasTextfield() }">
+                                                                            <div data-bind="css: {'col-sm-4': hasTextfield(), 'col-sm-12': !hasTextfield() }">
 
-            <div data-bind="if: hasSingleEnforcedValue()">
-                <input type="hidden" data-bind="attr: {name: fieldName}, value: singleEnforcedValue" name="-" value="" id="-" />
-                <p class="form-control-static"><span class="singlelabel" data-bind="text: singleEnforcedValue()"></span>
-                </p>
-            </div>
+                                                                                <div data-bind="if: hasSingleEnforcedValue()">
+                                                                                    <input type="hidden"
+                                                                                           data-bind="attr: {name: fieldName}, value: singleEnforcedValue"
+                                                                                           name="-" value="" id="-"/>
+                                                                                    <p class="form-control-static"><span
+                                                                                            class="singlelabel"
+                                                                                            data-bind="text: singleEnforcedValue()"></span>
+                                                                                    </p>
+                                                                                </div>
 
-            <div data-bind="if:!hasSingleEnforcedValue()">
+                                                                                <div data-bind="if:!hasSingleEnforcedValue()">
 
-                <div data-bind="if: multivalued">
-                    <!-- use checkboxes -->
-                    <div class="optionmultiarea " data-bind="visible: !enforced() || multiValueList().length>0">
+                                                                                    <div data-bind="if: multivalued">
+                                                                                        <!-- use checkboxes -->
+                                                                                        <div class="optionmultiarea "
+                                                                                             data-bind="visible: !enforced() || multiValueList().length>0">
 
-                        <div data-bind="if: !enforced()">
+                                                                                            <div data-bind="if: !enforced()">
 
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-sm-12 optionvaluemulti-add">
+                                                                                                <div class="container">
+                                                                                                    <div class="row">
+                                                                                                        <div class="col-sm-12 optionvaluemulti-add">
                                         <span class="btn btn-default btn-xs " data-bind="click: newMultivalueEntry">
                                             New Value <i class="glyphicon glyphicon-plus"></i>
                                         </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
 
-                        <div class="grid"
-                              data-bind="foreach: {data: multiValueList(), beforeRemove: animateRemove, afterAdd: animateAdd }">
-                            <div class="optionvaluemulti ">
-                                <label class="grid-row optionvaluemulti">
+                                                                                            <div class="grid"
+                                                                                                 data-bind="foreach: {data: multiValueList(), beforeRemove: animateRemove, afterAdd: animateAdd }">
+                                                                                                <div class="optionvaluemulti ">
+                                                                                                    <label class="grid-row optionvaluemulti">
                                     <span class="grid-cell grid-front">
                                         <input type="checkbox"
                                                data-bind="attr: { name: $parent.fieldName }, value: value, checked: selected"
                                                value=""/>
                                     </span>
-                                    <span class="grid-cell grid-rest">
+                                                                                                        <span class="grid-cell grid-rest">
                                         <!-- ko if: !editable() -->
                                         <span data-bind="text: label"></span>
-                                        <!-- /ko -->
+                                                                                                            <!-- /ko -->
 
-                                        <!-- ko if: editable() -->
-                                        <input type="text" data-bind="value: value, event: { keypress: option.multivalueFieldKeydown }"
+                                                                                                            <!-- ko if: editable() -->
+                                        <input type="text"
+                                               data-bind="value: value, event: { keypress: option.multivalueFieldKeydown }"
                                                class="form-control "/>
-                                        <!-- /ko -->
+                                                                                                            <!-- /ko -->
                                     </span>
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                                                                                                    </label>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
 
-                <div data-bind="if:!multivalued()">
-                    <select class="optionvalues form-control"
-                            data-bind="attr: {name: !hasTextfield()?fieldName():'', id: !hasTextfield()?fieldId():'' },
+                                                                                    <div data-bind="if:!multivalued()">
+                                                                                        <select class="optionvalues form-control"
+                                                                                                data-bind="attr: {name: !hasTextfield()?fieldName():'', id: !hasTextfield()?fieldId():'' },
                          options: selectOptions,
                          optionsText: 'label',
                          optionsValue: 'value',
                         value:selectedOptionValue">
-                    </select>
+                                                                                        </select>
 
-                </div>
+                                                                                    </div>
 
-            </div>
-        </div>
-    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
 
-    <div data-bind="if: showDefaultButton()">
-        <div class="col-sm-12">
+                                                                        <div data-bind="if: showDefaultButton()">
+                                                                            <div class="col-sm-12">
             <span class="btn btn-sm btn-link"
                   data-bind="attr: { title: message('option.default.button.title') }, click: setDefault"
                   title="Click to use default value: xx">
                 <i class="glyphicon glyphicon-hand-right "></i>
                 <span data-bind="messageTemplate: truncateDefaultValue">default: {0}</span>
             </span>
-        </div>
-    </div>
-    <!-- /ko -->
-</div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <!-- /ko -->
+                                                                    </div>
 
-<div data-bind="if: hasRemote() && remoteValues().length<1 && !remoteError()">
-    <div class="row">
-        <div class="col-sm-12">
-            <div class="text-muted">No values to choose from.</div>
-        </div>
-    </div>
-</div>
+                                                                    <div data-bind="if: hasRemote() && remoteValues().length<1 && !remoteError()">
+                                                                        <div class="row">
+                                                                            <div class="col-sm-12">
+                                                                                <div class="text-muted">No values to
+                                                                                    choose from.
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
 
-<div data-bind="if: remoteError()">
-    <div class="row">
-        <div class="col-sm-12">
-            <div data-bind="if: remoteError().code == 'empty'">
-                <div class="text-muted">No values to choose from.</div>
-            </div>
-            <span class="text-danger " data-bind="text: remoteError().error"></span>
+                                                                    <div data-bind="if: remoteError()">
+                                                                        <div class="row">
+                                                                            <div class="col-sm-12">
+                                                                                <div data-bind="if: remoteError().code == 'empty'">
+                                                                                    <div class="text-muted">No values to
+                                                                                        choose from.
+                                                                                    </div>
+                                                                                </div>
+                                                                                <span class="text-danger "
+                                                                                      data-bind="text: remoteError().error"></span>
 
-            <div data-bind="if: remoteError().exception || remoteError().url">
-                <a class="textbtn textbtn-warning "
-                   data-toggle="collapse"
-                   href="#"
-                   data-bind="attr: {href: '#rerr_'+option.uid() }">
-                   <span data-bind="text: remoteError().message"></span>
-                    <i class="auto-caret"></i>
-                </a>
-            </div>
-            <div data-bind="if: remoteError().message && !(remoteError().exception || remoteError().url)">
-                <span class="text-warning" data-bind="text: remoteError().message"></span>
-            </div>
+                                                                                <div data-bind="if: remoteError().exception || remoteError().url">
+                                                                                    <a class="textbtn textbtn-warning "
+                                                                                       data-toggle="collapse"
+                                                                                       href="#"
+                                                                                       data-bind="attr: {href: '#rerr_'+option.uid() }">
+                                                                                        <span data-bind="text: remoteError().message"></span>
+                                                                                        <i class="auto-caret"></i>
+                                                                                    </a>
+                                                                                </div>
+                                                                                <div data-bind="if: remoteError().message && !(remoteError().exception || remoteError().url)">
+                                                                                    <span class="text-warning"
+                                                                                          data-bind="text: remoteError().message"></span>
+                                                                                </div>
 
-            <div class="alert alert-warning collapse collapse-expandable" data-bind="attr: {id: 'rerr_'+option.uid() }">
+                                                                                <div class="alert alert-warning collapse collapse-expandable"
+                                                                                     data-bind="attr: {id: 'rerr_'+option.uid() }">
                 <span data-bind="if: remoteError().exception">
                     <div>Exception: <span data-bind="text: remoteError().exception"></span></div>
                 </span>
-                <span data-bind="if: remoteError().url">
+                                                                                    <span data-bind="if: remoteError().url">
                     <div>URL: <span data-bind="text: remoteError().url"></span></div>
                 </span>
-            </div>
-        </div>
-    </div>
-</div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
 
 
-            </div>
+                                                                </div>
 
-            <div class="col-sm-1">
+                                                                <div class="col-sm-1">
                 <span data-bind="if: required">
                     <span class="reqwarning has_tooltip"
                           data-bind="attr: {title: hasError()||message('option.value.required') }, visible: !hasValue(), bootstrapTooltip: true"
@@ -1205,245 +1122,244 @@ jQuery(function(){
                         <i class="glyphicon glyphicon-warning-sign"></i>
                     </span>
                 </span>
-            </div>
+                                                                </div>
 
-            <div class="col-sm-10 col-sm-offset-2">
+                                                                <div class="col-sm-10 col-sm-offset-2">
 
-                <span class="help-block" data-bind="html: descriptionHtml"></span>
-            </div>
+                                                                    <span class="help-block"
+                                                                          data-bind="html: descriptionHtml"></span>
+                                                                </div>
 
-            <div class="col-sm-10 col-sm-offset-2" data-bind="if: hasError">
-                <p class="text-warning" data-bind="text: hasError"></p>
-            </div>
-        </div>
-    </div>
-
-
-
-
-
+                                                                <div class="col-sm-10 col-sm-offset-2"
+                                                                     data-bind="if: hasError">
+                                                                    <p class="text-warning"
+                                                                       data-bind="text: hasError"></p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
 
 
-
-</div>
-
-
-<div class="form-group">
-    <label class="col-sm-2 control-label" for="extra.loglevel">Log level</label>
-
-    <div class="col-sm-10">
-        <label class="radio-inline">
-            <input type="radio" name="extra.loglevel" checked="checked" value="INFO" id="extra.loglevel"  />
-            Normal
-        </label>
-        <label class="radio-inline">
-            <input type="radio" name="extra.loglevel" value="DEBUG" id="extra.loglevel"  />
-            Debug
-        </label>
-
-        <div class="help-block">
-            Debug level produces more output
-        </div>
-    </div>
-</div>
-
-<script type="text/javascript">
-
-    fireWhenReady('optionSelect', function() {
-        $$('input[type=text]').each(function(e) {
-            Event.observe(e, 'keydown', noenter);
-        });
-        $$('input[type=password]').each(function(e) {
-            Event.observe(e, 'keydown', noenter);
-        });
-    });
-
-</script>
+                                                    </div>
 
 
+                                                    <div class="form-group">
+                                                        <label class="col-sm-2 control-label" for="extra.loglevel">Log
+                                                            level</label>
 
-    <div class="form-group" style="display:none;">
-    <div class="col-sm-2 control-label text-form-label">
-        Nodes
-    </div>
+                                                        <div class="col-sm-10">
+                                                            <label class="radio-inline">
+                                                                <input type="radio" name="extra.loglevel"
+                                                                       checked="checked" value="INFO"
+                                                                       id="extra.loglevel"/>
+                                                                Normal
+                                                            </label>
+                                                            <label class="radio-inline">
+                                                                <input type="radio" name="extra.loglevel" value="DEBUG"
+                                                                       id="extra.loglevel"/>
+                                                                Debug
+                                                            </label>
 
+                                                            <div class="help-block">
+                                                                Debug level produces more output
+                                                            </div>
+                                                        </div>
+                                                    </div>
 
-    <div class="col-sm-10">
+                                                    <script type="text/javascript">
 
+                                                        fireWhenReady('optionSelect', function () {
+                                                            $$('input[type=text]').each(function (e) {
+                                                                Event.observe(e, 'keydown', noenter);
+                                                            });
+                                                            $$('input[type=password]').each(function (e) {
+                                                                Event.observe(e, 'keydown', noenter);
+                                                            });
+                                                        });
 
-
-
-
-            <div class="row">
-                <div class="col-sm-12 checkbox">
-                    <label >
-                    <input name="extra._replaceNodeFilters" value="true" type="checkbox"
-                           data-toggle="collapse"
-                           data-target="#nodeSelect"
-
-                           id="doReplaceFilters"/>
-                    Change the Target Nodes
-
-                    </label>
-                </div>
-
-            </div>
-            <div class="container">
-            <div class=" matchednodes embed jobmatchednodes group_section collapse " id="nodeSelect">
-
-
-
-            </div>
-            </div>
-            <script type="text/javascript">
-
-                var updateSelectCount = function (evt) {
-                    var count = 0;
-                    $$('.node_ident input[type=checkbox]').each(function (e2) {
-                        if (e2.checked) {
-                            count++;
-                        }
-                    });
-                    $$('.nodeselectcount').each(function (e2) {
-                        setText($(e2), count + '');
-                        $(e2).removeClassName('text-info');
-                        $(e2).removeClassName('text-danger');
-                        $(e2).addClassName(count>0?'text-info':'text-danger');
-                    });
-                };
-                $$('.node_ident input[type=checkbox]').each(function (e) {
-                    Event.observe(e, 'change', function (evt) {
-                      Event.fire($('nodeSelect'), 'nodeset:change');
-                    });
-                });
-                Event.observe($('nodeSelect'), 'nodeset:change', updateSelectCount);
-                $$('div.jobmatchednodes span.textbtn.selectall').each(function (e) {
-                    Event.observe(e, 'click', function (evt) {
-                        $(e).up('.group_section').select('input').each(function (el) {
-                            if (el.type == 'checkbox') {
-                                el.checked = true;
-                            }
-                        });
-                        $(e).up('.group_section').select('span.textbtn.obs_tag_group').each(function (e) {
-                            $(e).setAttribute('data-tagselected', 'true');
-                            $(e).addClassName('active');
-                        });
-                        Event.fire($('nodeSelect'), 'nodeset:change');
-                    });
-                });
-                $$('div.jobmatchednodes span.textbtn.selectnone').each(function (e) {
-                    Event.observe(e, 'click', function (evt) {
-                        $(e).up('.group_section').select('input').each(function (el) {
-                            if (el.type == 'checkbox') {
-                                el.checked = false;
-                            }
-                        });
-                        $(e).up('.group_section').select('span.textbtn.obs_tag_group').each(function (e) {
-                            $(e).setAttribute('data-tagselected', 'false');
-                            $(e).removeClassName('active');
-                        });
-                        Event.fire($('nodeSelect'), 'nodeset:change');
-                    });
-                });
-                $$('div.jobmatchednodes span.textbtn.obs_tag_group').each(function (e) {
-                    Event.observe(e, 'click', function (evt) {
-                        var ischecked = e.getAttribute('data-tagselected') != 'false';
-                        e.setAttribute('data-tagselected', ischecked ? 'false' : 'true');
-                        if (!ischecked) {
-                            $(e).addClassName('active');
-                        } else {
-                            $(e).removeClassName('active');
-                        }
-                        $(e).up('.group_section').select('input[data-tag~="' + e.getAttribute('data-tag') + '"]').each(function (el) {
-                            if (el.type == 'checkbox') {
-                                el.checked = !ischecked;
-                            }
-                        });
-                        $(e).up('.group_section').select('span.textbtn.obs_tag_group[data-tag="' + e.getAttribute('data-tag') + '"]').each(function (el) {
-                            el.setAttribute('data-tagselected', ischecked ? 'false' : 'true');
-                            if (!ischecked) {
-                                $(el).addClassName('active');
-                            } else {
-                                $(el).removeClassName('active');
-                            }
-                        });
-                        Event.fire($('nodeSelect'), 'nodeset:change');
-                    });
-                });
-
-                Event.observe($('doReplaceFilters'), 'change', function (evt) {
-                    var e = evt.element();
-                    $$('div.jobmatchednodes input').each(function (cb) {
-                        if (cb.type == 'checkbox') {
-                            [cb].each(e.checked ? Field.enable : Field.disable);
-                            if (!e.checked) {
-                                $$('.group_select_control').each(Element.hide);
-                                cb.checked = true;
-                            } else {
-                                $$('.group_select_control').each(Element.show);
-                            }
-                        }
-                    });
-                    Event.fire($('nodeSelect'), 'nodeset:change');
-                    if(!e.checked){
-                        $$('.nodeselectcount').each(function (e2) {
-                            $(e2).removeClassName('text-info');
-                            $(e2).removeClassName('text-danger');
-                        });
-                    }
-                });
+                                                    </script>
 
 
-                /** reset focus on click, so that IE triggers onchange event*/
-                Event.observe($('doReplaceFilters'), 'click', function (evt) {
-                    this.blur();
-                    this.focus();
-                });
+                                                    <div class="form-group" style="display:none;">
+                                                        <div class="col-sm-2 control-label text-form-label">
+                                                            Nodes
+                                                        </div>
 
 
-</script>
+                                                        <div class="col-sm-10">
 
 
-                <script type="text/javascript">
+                                                            <div class="row">
+                                                                <div class="col-sm-12 checkbox">
+                                                                    <label>
+                                                                        <input name="extra._replaceNodeFilters"
+                                                                               value="true" type="checkbox"
+                                                                               data-toggle="collapse"
+                                                                               data-target="#nodeSelect"
 
-                    Event.fire($('nodeSelect'), 'nodeset:change');
+                                                                               id="doReplaceFilters"/>
+                                                                        Change the Target Nodes
 
-</script>
+                                                                    </label>
+                                                                </div>
+
+                                                            </div>
+                                                            <div class="container">
+                                                                <div class=" matchednodes embed jobmatchednodes group_section collapse "
+                                                                     id="nodeSelect">
 
 
+                                                                </div>
+                                                            </div>
+                                                            <script type="text/javascript">
 
-    </div>
-    </div>
+                                                                var updateSelectCount = function (evt) {
+                                                                    var count = 0;
+                                                                    $$('.node_ident input[type=checkbox]').each(function (e2) {
+                                                                        if (e2.checked) {
+                                                                            count++;
+                                                                        }
+                                                                    });
+                                                                    $$('.nodeselectcount').each(function (e2) {
+                                                                        setText($(e2), count + '');
+                                                                        $(e2).removeClassName('text-info');
+                                                                        $(e2).removeClassName('text-danger');
+                                                                        $(e2).addClassName(count > 0 ? 'text-info' : 'text-danger');
+                                                                    });
+                                                                };
+                                                                $$('.node_ident input[type=checkbox]').each(function (e) {
+                                                                    Event.observe(e, 'change', function (evt) {
+                                                                        Event.fire($('nodeSelect'), 'nodeset:change');
+                                                                    });
+                                                                });
+                                                                Event.observe($('nodeSelect'), 'nodeset:change', updateSelectCount);
+                                                                $$('div.jobmatchednodes span.textbtn.selectall').each(function (e) {
+                                                                    Event.observe(e, 'click', function (evt) {
+                                                                        $(e).up('.group_section').select('input').each(function (el) {
+                                                                            if (el.type == 'checkbox') {
+                                                                                el.checked = true;
+                                                                            }
+                                                                        });
+                                                                        $(e).up('.group_section').select('span.textbtn.obs_tag_group').each(function (e) {
+                                                                            $(e).setAttribute('data-tagselected', 'true');
+                                                                            $(e).addClassName('active');
+                                                                        });
+                                                                        Event.fire($('nodeSelect'), 'nodeset:change');
+                                                                    });
+                                                                });
+                                                                $$('div.jobmatchednodes span.textbtn.selectnone').each(function (e) {
+                                                                    Event.observe(e, 'click', function (evt) {
+                                                                        $(e).up('.group_section').select('input').each(function (el) {
+                                                                            if (el.type == 'checkbox') {
+                                                                                el.checked = false;
+                                                                            }
+                                                                        });
+                                                                        $(e).up('.group_section').select('span.textbtn.obs_tag_group').each(function (e) {
+                                                                            $(e).setAttribute('data-tagselected', 'false');
+                                                                            $(e).removeClassName('active');
+                                                                        });
+                                                                        Event.fire($('nodeSelect'), 'nodeset:change');
+                                                                    });
+                                                                });
+                                                                $$('div.jobmatchednodes span.textbtn.obs_tag_group').each(function (e) {
+                                                                    Event.observe(e, 'click', function (evt) {
+                                                                        var ischecked = e.getAttribute('data-tagselected') != 'false';
+                                                                        e.setAttribute('data-tagselected', ischecked ? 'false' : 'true');
+                                                                        if (!ischecked) {
+                                                                            $(e).addClassName('active');
+                                                                        } else {
+                                                                            $(e).removeClassName('active');
+                                                                        }
+                                                                        $(e).up('.group_section').select('input[data-tag~="' + e.getAttribute('data-tag') + '"]').each(function (el) {
+                                                                            if (el.type == 'checkbox') {
+                                                                                el.checked = !ischecked;
+                                                                            }
+                                                                        });
+                                                                        $(e).up('.group_section').select('span.textbtn.obs_tag_group[data-tag="' + e.getAttribute('data-tag') + '"]').each(function (el) {
+                                                                            el.setAttribute('data-tagselected', ischecked ? 'false' : 'true');
+                                                                            if (!ischecked) {
+                                                                                $(el).addClassName('active');
+                                                                            } else {
+                                                                                $(el).removeClassName('active');
+                                                                            }
+                                                                        });
+                                                                        Event.fire($('nodeSelect'), 'nodeset:change');
+                                                                    });
+                                                                });
 
-    <div class="error note" id="formerror" style="display:none">
+                                                                Event.observe($('doReplaceFilters'), 'change', function (evt) {
+                                                                    var e = evt.element();
+                                                                    $$('div.jobmatchednodes input').each(function (cb) {
+                                                                        if (cb.type == 'checkbox') {
+                                                                            [cb].each(e.checked ? Field.enable : Field.disable);
+                                                                            if (!e.checked) {
+                                                                                $$('.group_select_control').each(Element.hide);
+                                                                                cb.checked = true;
+                                                                            } else {
+                                                                                $$('.group_select_control').each(Element.show);
+                                                                            }
+                                                                        }
+                                                                    });
+                                                                    Event.fire($('nodeSelect'), 'nodeset:change');
+                                                                    if (!e.checked) {
+                                                                        $$('.nodeselectcount').each(function (e2) {
+                                                                            $(e2).removeClassName('text-info');
+                                                                            $(e2).removeClassName('text-danger');
+                                                                        });
+                                                                    }
+                                                                });
 
-    </div>
-</div>
 
-<div class="col-sm-3">
-    <div id="formbuttons">
+                                                                /** reset focus on click, so that IE triggers onchange event*/
+                                                                Event.observe($('doReplaceFilters'), 'click', function (evt) {
+                                                                    this.blur();
+                                                                    this.focus();
+                                                                });
 
-        <div class="pull-right">
-            <div title=""
-                  class="has_tooltip"
-                  data-toggle="tooltip"
-                  data-placement="auto right"
-            >
-                <button type="submit"
-                        name="_action_runJobNow"
-                        id="execFormRunButton"
 
-                        class=" btn btn-success">
-                    Run Job Now
-                    <b class="glyphicon glyphicon-play"></b>
-                </button>
-                <a tabindex="0" role="button"
-                        id="showScheduler"
+                                                            </script>
 
-                        class=" btn btn-default"
-                        data-toggle="popover" title="Set start time" data-trigger="click"
-                        data-placement="auto left" data-container="body" data-html="true"
-                        data-trigger="focus" data-content="<div id='scheduler'>
+
+                                                            <script type="text/javascript">
+
+                                                                Event.fire($('nodeSelect'), 'nodeset:change');
+
+                                                            </script>
+
+
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="error note" id="formerror" style="display:none">
+
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-sm-3">
+                                                    <div id="formbuttons">
+
+                                                        <div class="pull-right">
+                                                            <div title=""
+                                                                 class="has_tooltip"
+                                                                 data-toggle="tooltip"
+                                                                 data-placement="auto right"
+                                                            >
+                                                                <button type="submit"
+                                                                        name="_action_runJobNow"
+                                                                        id="execFormRunButton"
+
+                                                                        class=" btn btn-success">
+                                                                    Run Job Now
+                                                                    <b class="glyphicon glyphicon-play"></b>
+                                                                </button>
+                                                                <a tabindex="0" role="button"
+                                                                   id="showScheduler"
+
+                                                                   class=" btn btn-default"
+                                                                   data-toggle="popover" title="Set start time"
+                                                                   data-trigger="click"
+                                                                   data-placement="auto left" data-container="body"
+                                                                   data-html="true"
+                                                                   data-trigger="focus" data-content="<div id='scheduler'>
                                 <div class='input-group date' id='datetimepicker'>
                                     <input type='text' class='form-control' />
                                     <span class='input-group-addon'>
@@ -1461,79 +1377,72 @@ jQuery(function(){
                                     <b class='glyphicon glyphicon-time'></b>
                                 </button>
                             </div>">
-                    Run Job Later
-                    <b class="glyphicon glyphicon-time"></b>
-                </a>
-            </div>
-        </div>
-        <div class="clearfix">
-        </div>
-        <div class="pull-right">
-            <label class="control-label">
-                <input type="hidden" name="_follow" /><input type="checkbox" name="follow" checked="checked" value="true" id="followoutputcheck"  />
-                Follow execution
-            </label>
-        </div>
-    </div>
-</div>
+                                                                    Run Job Later
+                                                                    <b class="glyphicon glyphicon-time"></b>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="clearfix">
+                                                        </div>
+                                                        <div class="pull-right">
+                                                            <label class="control-label">
+                                                                <input type="hidden" name="_follow"/><input
+                                                                    type="checkbox" name="follow" checked="checked"
+                                                                    value="true" id="followoutputcheck"/>
+                                                                Follow execution
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
 
-</div>
-</div>
-</div>
+                                            </div>
+                                        </div>
+                                    </div>
 
-</div>
-</form>
-</div>
-</div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
 
-<content tag="footScripts">
-    <link rel="stylesheet" href="/assets/bootstrap-datetimepicker.min-e4f19818e58a0b48ea9588dda280de09.css"/>
-    <script type="text/javascript" src="/assets/scheduler-cbeeb4515b2ac67b6d73f6fc9d5b6aa3.js" ></script>
-</content tag="footScripts">
+                    <content tag="footScripts">
+                        <link rel="stylesheet"
+                              href="/assets/bootstrap-datetimepicker.min-e4f19818e58a0b48ea9588dda280de09.css"/>
+                        <script type="text/javascript"
+                                src="/assets/scheduler-cbeeb4515b2ac67b6d73f6fc9d5b6aa3.js"></script>
+                    </content tag="footScripts">
 
-<link rel="stylesheet" href="/assets/bootstrap-datetimepicker.min-e4f19818e58a0b48ea9588dda280de09.css"/>
-<script type="text/javascript" src="/assets/scheduler-cbeeb4515b2ac67b6d73f6fc9d5b6aa3.js" ></script>
+                    <link rel="stylesheet"
+                          href="/assets/bootstrap-datetimepicker.min-e4f19818e58a0b48ea9588dda280de09.css"/>
+                    <script type="text/javascript" src="/assets/scheduler-cbeeb4515b2ac67b6d73f6fc9d5b6aa3.js"></script>
 
                 </div>
 
-            <div id="definition"
-                 class="tab-pane panel panel-default panel-tab-content  ">
-                <div class="panel-body">
+                <div id="definition"
+                     class="tab-pane panel panel-default panel-tab-content  ">
+                    <div class="panel-body">
 
 
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <table class="simpleForm execdetails">
 
 
-<div class="row" >
-<div class="col-sm-12">
-<table class="simpleForm execdetails">
+                                    <tr>
+                                        <td>Steps:</td>
+                                        <td>
 
 
+                                            <div class="pflowlist  rounded " style="">
+
+                                                <ol id="wfilist_77c48904" class="flowlist">
 
 
+                                                    <li class=" draggableitem" data-wfitemnum="0">
+                                                        <div id="wfli_0">
 
-        <tr>
-            <td>Steps:</td>
-            <td >
-
-
-
-
-
-
-
-<div class="pflowlist  rounded " style="">
-
-    <ol id="wfilist_77c48904" class="flowlist">
-
-
-
-
-    <li class=" draggableitem" data-wfitemnum="0">
-        <div id="wfli_0">
-
-<div id="wfivis_0" style="">
-    <div class="pflowitem wfctrlholder">
-        <span class="pflow item " id="wfitem_0" >
+                                                            <div id="wfivis_0" style="">
+                                                                <div class="pflowitem wfctrlholder">
+        <span class="pflow item " id="wfitem_0">
 
 
 
@@ -1591,8 +1500,8 @@ jQuery(function(){
 <div class="row">
 
 
-    <input type="hidden" name="prefix" value="" id="prefix" />
-    <input type="hidden" name="type" value="localexec" id="type" />
+    <input type="hidden" name="prefix" value="" id="prefix"/>
+    <input type="hidden" name="type" value="localexec" id="type"/>
     <div class="col-sm-12 form-horizontal">
 
 
@@ -1619,14 +1528,15 @@ jQuery(function(){
 
         </span>
 
-            <div  id="77c48904" style="display:none;">
+            <div id="77c48904" style="display:none;">
 
 
 
 
 
 
-    <input type="hidden" name="config.command" value="ansible -i /etc/ansible/hosts.pre ${option.app} -m script -a &#39;/data/updates/scripts/rundeck/web/get_web_pkg ${option.app}&#39;"/>
+    <input type="hidden" name="config.command"
+           value="ansible -i /etc/ansible/hosts.pre ${option.app} -m script -a &#39;/data/updates/scripts/rundeck/web/get_web_pkg ${option.app}&#39;"/>
 
 
 
@@ -1645,28 +1555,26 @@ jQuery(function(){
     </span>
 
 
+                                                                </div>
+                                                            </div>
 
+                                                        </div>
 
+                                                        <ul class="wfhandleritem" style="display: none"
+                                                            data-wfitemnum="0">
 
-</div>
-</div>
+                                                            <li id="wfli_eh_0"></li>
 
-        </div>
+                                                        </ul>
 
-            <ul class="wfhandleritem" style="display: none" data-wfitemnum="0">
+                                                    </li>
 
-                <li id="wfli_eh_0"></li>
+                                                    <li class="alternate draggableitem" data-wfitemnum="1">
+                                                        <div id="wfli_1">
 
-            </ul>
-
-    </li>
-
-    <li class="alternate draggableitem" data-wfitemnum="1">
-        <div id="wfli_1">
-
-<div id="wfivis_1" style="">
-    <div class="pflowitem wfctrlholder">
-        <span class="pflow item " id="wfitem_1" >
+                                                            <div id="wfivis_1" style="">
+                                                                <div class="pflowitem wfctrlholder">
+        <span class="pflow item " id="wfitem_1">
 
 
 
@@ -1724,8 +1632,8 @@ jQuery(function(){
 <div class="row">
 
 
-    <input type="hidden" name="prefix" value="" id="prefix" />
-    <input type="hidden" name="type" value="localexec" id="type" />
+    <input type="hidden" name="prefix" value="" id="prefix"/>
+    <input type="hidden" name="type" value="localexec" id="type"/>
     <div class="col-sm-12 form-horizontal">
 
 
@@ -1752,14 +1660,15 @@ jQuery(function(){
 
         </span>
 
-            <div  id="77c48904" style="display:none;">
+            <div id="77c48904" style="display:none;">
 
 
 
 
 
 
-    <input type="hidden" name="config.command" value="ansible -i /etc/ansible/hosts.pre ${option.app} -m fetch -a &#39;src=/data/updates/pkgs/${option.app}/${option.app}.zip dest=/data/updates/pkgs/${option.app}/ flat=yes&#39;"/>
+    <input type="hidden" name="config.command"
+           value="ansible -i /etc/ansible/hosts.pre ${option.app} -m fetch -a &#39;src=/data/updates/pkgs/${option.app}/${option.app}.zip dest=/data/updates/pkgs/${option.app}/ flat=yes&#39;"/>
 
 
 
@@ -1778,28 +1687,26 @@ jQuery(function(){
     </span>
 
 
+                                                                </div>
+                                                            </div>
 
+                                                        </div>
 
+                                                        <ul class="wfhandleritem" style="display: none"
+                                                            data-wfitemnum="1">
 
-</div>
-</div>
+                                                            <li id="wfli_eh_1"></li>
 
-        </div>
+                                                        </ul>
 
-            <ul class="wfhandleritem" style="display: none" data-wfitemnum="1">
+                                                    </li>
 
-                <li id="wfli_eh_1"></li>
+                                                    <li class=" draggableitem" data-wfitemnum="2">
+                                                        <div id="wfli_2">
 
-            </ul>
-
-    </li>
-
-    <li class=" draggableitem" data-wfitemnum="2">
-        <div id="wfli_2">
-
-<div id="wfivis_2" style="">
-    <div class="pflowitem wfctrlholder">
-        <span class="pflow item " id="wfitem_2" >
+                                                            <div id="wfivis_2" style="">
+                                                                <div class="pflowitem wfctrlholder">
+        <span class="pflow item " id="wfitem_2">
 
 
 
@@ -1857,8 +1764,8 @@ jQuery(function(){
 <div class="row">
 
 
-    <input type="hidden" name="prefix" value="" id="prefix" />
-    <input type="hidden" name="type" value="localexec" id="type" />
+    <input type="hidden" name="prefix" value="" id="prefix"/>
+    <input type="hidden" name="type" value="localexec" id="type"/>
     <div class="col-sm-12 form-horizontal">
 
 
@@ -1885,14 +1792,15 @@ jQuery(function(){
 
         </span>
 
-            <div  id="77c48904" style="display:none;">
+            <div id="77c48904" style="display:none;">
 
 
 
 
 
 
-    <input type="hidden" name="config.command" value="sh /data/updates/scripts/rundeck/web/reconfig_web_pkg ${option.app}"/>
+    <input type="hidden" name="config.command"
+           value="sh /data/updates/scripts/rundeck/web/reconfig_web_pkg ${option.app}"/>
 
 
 
@@ -1911,41 +1819,38 @@ jQuery(function(){
     </span>
 
 
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+
+                                                        <ul class="wfhandleritem" style="display: none"
+                                                            data-wfitemnum="2">
+
+                                                            <li id="wfli_eh_2"></li>
+
+                                                        </ul>
+
+                                                    </li>
 
 
-
-</div>
-</div>
-
-        </div>
-
-            <ul class="wfhandleritem" style="display: none" data-wfitemnum="2">
-
-                <li id="wfli_eh_2"></li>
-
-            </ul>
-
-    </li>
+                                                </ol>
+                                                <div id="workflowDropfinal" class="dragdropfinal" data-wfitemnum="3"
+                                                     style="display:none"></div>
+                                                <div class="empty note " id="wfempty" style="display:none;">
+                                                    No Workflow steps
+                                                </div>
 
 
+                                            </div>
 
-
-    </ol>
-    <div id="workflowDropfinal" class="dragdropfinal" data-wfitemnum="3" style="display:none"></div>
-    <div class="empty note " id="wfempty" style="display:none;">
-        No Workflow steps
-    </div>
-
-
-</div>
-
-    <div>
+                                            <div>
     <span class="text-muted text-em">
         If a step fails:
         <strong>Stop at the failed step.</strong>
     </span>
-    </div>
-    <div>
+                                            </div>
+                                            <div>
     <span class="text-muted text-em">
         Strategy:
         <div id="workflowstrategydetail" data-strategy="node-first">
@@ -1991,8 +1896,8 @@ jQuery(function(){
 <div class="row">
 
 
-    <input type="hidden" name="prefix" value="" id="prefix" />
-    <input type="hidden" name="nulltype" value="node-first" id="nulltype" />
+    <input type="hidden" name="prefix" value="" id="prefix"/>
+    <input type="hidden" name="nulltype" value="node-first" id="nulltype"/>
     <div class="col-sm-12 form-horizontal">
 
 </div>
@@ -2002,24 +1907,21 @@ jQuery(function(){
         </div>
     </span>
 
-    </div>
+                                            </div>
 
 
-
-<div class="clear"></div>
-
+                                            <div class="clear"></div>
 
 
+                                            <div id="wfnewitem"></div>
 
-<div id="wfnewitem"></div>
-
-            </td>
-        </tr>
+                                        </td>
+                                    </tr>
 
 
-            <tr>
-                <td>Options:</td>
-                <td >
+                                    <tr>
+                                        <td>Options:</td>
+                                        <td>
 
 
 
@@ -2034,37 +1936,32 @@ jQuery(function(){
 </span>
 
 
-
-                </td>
-            </tr>
-
+                                        </td>
+                                    </tr>
 
 
+                                    <tbody>
+                                    <tr>
+                                        <td>Node:</td>
+                                        <td class="matchednodes embed" id="matchednodes_dcf61875">
+                                            <span class="text-muted">Execute on the server node:</span>
 
 
-
-
-        <tbody>
-        <tr>
-            <td>Node:</td>
-            <td class="matchednodes embed" id="matchednodes_dcf61875">
-                <span class="text-muted">Execute on the server node:</span>
-
-
-                    <span class="ko-wrap">
+                                            <span class="ko-wrap">
                         <span class="btn btn-sm btn-default receiver"
                               title="Display matching nodes"
                               data-bind="click: updateMatchedNodes"
                         >
                             Server Node
                         </span>
-                        <a href="/project/Generate_Update_packages/nodes?filterLocalNodeOnly=true" title="View in Nodes Page"><i class="glyphicon glyphicon-arrow-right "></i></a>
-                        <div >
+                        <a href="/project/Generate_Update_packages/nodes?filterLocalNodeOnly=true"
+                           title="View in Nodes Page"><i class="glyphicon glyphicon-arrow-right "></i></a>
+                        <div>
 
 
 
 
-<span  class=" ansicolor-on matchednodes embed embed_clean" data-bind="">
+<span class=" ansicolor-on matchednodes embed embed_clean" data-bind="">
     <span data-bind="foreach: {data: nodeSet().nodes, 'as': 'node'} ">
 
         <a tabindex="0"
@@ -2202,8 +2099,8 @@ You do not have access to execute commands on this node.
     </tbody>
 
 
-    <tbody  data-bind="foreachprop: node.attributes">
-    <tr class="hover-action-holder" >
+    <tbody data-bind="foreachprop: node.attributes">
+    <tr class="hover-action-holder">
         <td class="key setting">
             <node-filter-link params="
                                         filterkey: key,
@@ -2243,7 +2140,8 @@ You do not have access to execute commands on this node.
 
 
     <div data-bind="if: total() > maxShown()">
-        <span data-bind="messageTemplate: [maxShown(), total()]" class="text-info">Results truncated. {0} results shown.</span>
+        <span data-bind="messageTemplate: [maxShown(), total()]"
+              class="text-info">Results truncated. {0} results shown.</span>
     </div>
 
 
@@ -2251,205 +2149,179 @@ You do not have access to execute commands on this node.
                         </div>
                     </span>
 
-            </td>
-        </tr>
-        </tbody>
+                                        </td>
+                                    </tr>
+                                    </tbody>
 
 
-
-
-
-
-
-
-
-
-
-        <tr>
-            <td>
-                <span class="jobuuid desc">UUID:</span>
-            </td>
-            <td>
-                <span class="jobuuid desc" title="UUID for this job">8ba4992b-4509-4873-a1f2-29abc6a74e67</span>
-            </td>
-        </tr>
-        <tr>
-            <td >
-                Created:
-            </td>
-            <td >
+                                    <tr>
+                                        <td>
+                                            <span class="jobuuid desc">UUID:</span>
+                                        </td>
+                                        <td>
+                                            <span class="jobuuid desc" title="UUID for this job">8ba4992b-4509-4873-a1f2-29abc6a74e67</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Created:
+                                        </td>
+                                        <td>
                 <span class="when">
-                    <span class="ago" >33d2h</span> ago
+                    <span class="ago">33d2h</span> ago
                 </span>
-            </td>
-        </tr>
+                                        </td>
+                                    </tr>
 
 
-</table>
-</div>
-</div>
+                                </table>
+                            </div>
+                        </div>
 
 
+                    </div>
                 </div>
-            </div>
 
+            </div>
         </div>
     </div>
-</div>
 
 
-<div class="row">
-    <div class="col-sm-12 ">
-        <h4 class="text-muted">Statistics</h4>
+    <div class="row">
+        <div class="col-sm-12 ">
+            <h4 class="text-muted">Statistics</h4>
 
 
+            <div class="jobstats" style="clear:both;">
+                <table class="table table-bordered table-condensed">
+
+                    <tr>
+                        <th style="width: 20%" class="text-muted text-center  text-header">
+                            Executions
+                        </th>
+
+                        <th style="width: 20%" class="text-muted text-center  text-header">
+                            Success rate
+                        </th>
 
 
+                        <th style="width: 20%" class="text-muted text-center  text-header">
+                            Average duration
+                        </th>
 
-
-
-
-
-<div class="jobstats" style="clear:both;">
-    <table class="table table-bordered table-condensed" >
-
-        <tr>
-            <th style="width: 20%" class="text-muted text-center  text-header">
-                Executions
-            </th>
-
-            <th style="width: 20%" class="text-muted text-center  text-header">
-                Success rate
-            </th>
-
-
-            <th style="width: 20%" class="text-muted text-center  text-header">
-                Average duration
-            </th>
-
-        </tr>
-        <tr>
-            <td class="text-center">
+                    </tr>
+                    <tr>
+                        <td class="text-center">
                 <span class="h3 ">
                     25
                 </span>
-            </td>
+                        </td>
 
 
-
-
-
-
-            <td class="text-center">
+                        <td class="text-center">
                 <span class="h3 text-muted">
                     88%
                 </span>
-            </td>
+                        </td>
 
 
-            <td class="text-center">
+                        <td class="text-center">
                     <span class="h3 ">
                         10s
                     </span>
-                </td>
+                        </td>
 
 
-        </tr>
-    </table>
-</div>
+                    </tr>
+                </table>
+            </div>
 
 
+        </div>
     </div>
-</div>
 
-<div class="row" id="activity_section">
-    <div class="col-sm-12">
-        <h4 class="text-muted">Activity for this Job</h4>
-
+    <div class="row" id="activity_section">
+        <div class="col-sm-12">
+            <h4 class="text-muted">Activity for this Job</h4>
 
 
+            <ul class="nav nav-tabs activity_links">
+                <li data-bind="css: { disabled: !nowRunningEnabled() }">
+                    <a href="/project/Generate_Update_packages/activity?jobIdFilter=8ba4992b-4509-4873-a1f2-29abc6a74e67&amp;runningFilter=running"
+                       class="running_link" title="All activity for this job" data-auto-refresh="5">
+                        <i class="glyphicon glyphicon-play-circle"></i>
+                        running
+                    </a>
+                </li>
+                <li>
+                    <a href="/project/Generate_Update_packages/activity?jobIdFilter=1" class="activity_link"
+                       title="All activity for this job">
+                        <i class="glyphicon glyphicon-time"></i>
+                        recent
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/project/Generate_Update_packages/activity?jobIdFilter=1&amp;statFilter=fail"
+                       class="activity_link" title="Failed executions">
+                        <i class="glyphicon glyphicon-minus-sign"></i>
+                        failed
+                    </a>
+                </li>
 
 
+                <li>
+                    <a href="/project/Generate_Update_packages/activity?jobIdFilter=1&amp;userFilter=admin"
+                       class="activity_link" title="Executions by you">
+                        <i class="glyphicon glyphicon-user"></i>
+                        by you
+                    </a>
+                </li>
 
 
+            </ul>
 
 
-
-
-
-<ul class="nav nav-tabs activity_links">
-    <li data-bind="css: { disabled: !nowRunningEnabled() }">
-        <a href="/project/Generate_Update_packages/activity?jobIdFilter=8ba4992b-4509-4873-a1f2-29abc6a74e67&amp;runningFilter=running" class="running_link" title="All activity for this job" data-auto-refresh="5">
-            <i class="glyphicon glyphicon-play-circle"></i>
-            running
-        </a>
-    </li>
-    <li>
-        <a href="/project/Generate_Update_packages/activity?jobIdFilter=1" class="activity_link" title="All activity for this job">
-            <i class="glyphicon glyphicon-time"></i>
-            recent
-        </a>
-    </li>
-
-    <li>
-        <a href="/project/Generate_Update_packages/activity?jobIdFilter=1&amp;statFilter=fail" class="activity_link" title="Failed executions">
-            <i class="glyphicon glyphicon-minus-sign"></i>
-            failed
-        </a>
-    </li>
-
-
-        <li>
-            <a href="/project/Generate_Update_packages/activity?jobIdFilter=1&amp;userFilter=admin" class="activity_link" title="Executions by you">
-                <i class="glyphicon glyphicon-user"></i>
-                by you
-            </a>
-        </li>
-
-
-
-
-</ul>
-
-
-<div data-bind="visible: selected()"  class="panel panel-default panel-tab-content" style="display: none;">
-    <table class=" table table-hover table-condensed events-table events-table-embed"
-           style="width:100%; display: none"
-           data-bind="visible: results().length > 0">
-        <tbody ></tbody>
-        <tbody data-bind=" foreach: results ">
-        <tr class="link activity_row autoclick"
-            data-bind="css: { 'succeed': status()=='succeed', 'fail': status()=='fail', 'highlight': $root.highlightExecutionId()==executionId(), job: isJob(), adhoc: isAdhoc() } ">
-            <td class="eventicon" data-bind="visible: $root.bulkEditMode()">
-                <input type="checkbox" name="bulk_edit" data-bind="value: executionId(), checked: bulkEditSelected"
-                       class="_defaultInput"/>
-            </td>
-            <td class="eventicon autoclickable" data-bind="attr: { 'title': executionState() } ">
-                <i class="exec-status icon" data-bind="
+            <div data-bind="visible: selected()" class="panel panel-default panel-tab-content" style="display: none;">
+                <table class=" table table-hover table-condensed events-table events-table-embed"
+                       style="width:100%; display: none"
+                       data-bind="visible: results().length > 0">
+                    <tbody></tbody>
+                    <tbody data-bind=" foreach: results ">
+                    <tr class="link activity_row autoclick"
+                        data-bind="css: { 'succeed': status()=='succeed', 'fail': status()=='fail', 'highlight': $root.highlightExecutionId()==executionId(), job: isJob(), adhoc: isAdhoc() } ">
+                        <td class="eventicon" data-bind="visible: $root.bulkEditMode()">
+                            <input type="checkbox" name="bulk_edit"
+                                   data-bind="value: executionId(), checked: bulkEditSelected"
+                                   class="_defaultInput"/>
+                        </td>
+                        <td class="eventicon autoclickable" data-bind="attr: { 'title': executionState() } ">
+                            <i class="exec-status icon" data-bind="
                 attr: { 'data-execstate': executionState, 'data-statusstring': customStatusString }
                 "></i>
-            </td>
-            <td class="eventtitle autoclickable" data-bind="css: { job: isJob(), adhoc: isAdhoc() }">
-                <a href="#" data-bind="text: '#'+executionId(), attr: { href: executionHref() }" class="_defaultAction"></a>
+                        </td>
+                        <td class="eventtitle autoclickable" data-bind="css: { job: isJob(), adhoc: isAdhoc() }">
+                            <a href="#" data-bind="text: '#'+executionId(), attr: { href: executionHref() }"
+                               class="_defaultAction"></a>
 
-                <span data-bind="if: isCustomStatus">
+                            <span data-bind="if: isCustomStatus">
                     <span class="exec-status-text custom-status" data-bind="text: customStatusString"></span>
                 </span>
-            </td>
-            <td class="eventargs autoclickable" >
-                <div class="argstring-scrollable">
+                        </td>
+                        <td class="eventargs autoclickable">
+                            <div class="argstring-scrollable">
                 <span data-bind="if: execution().jobArguments">
                     <span data-bind="foreachprop: execution().jobArguments">
                         <span data-bind="text: key"></span>:
                         <span data-bind="text: value" class="optvalue"></span>
                     </span>
                 </span>
-                <!-- ko if: !execution().jobArguments -->
-                <span data-bind="text: execution().argString"></span>
-                <!-- /ko -->
-                </div>
-            </td>
-            <td class="right date autoclickable">
+                                <!-- ko if: !execution().jobArguments -->
+                                <span data-bind="text: execution().argString"></span>
+                                <!-- /ko -->
+                            </div>
+                        </td>
+                        <td class="right date autoclickable">
                 <span data-bind="if: dateCompleted()">
                     <span class="timeabs" data-bind="text: endTimeFormat('M/DD/YY h:mm a')">
 
@@ -2459,13 +2331,15 @@ You do not have access to execute commands on this node.
                         <span class="duration" data-bind="text: durationHumanize()"></span>
                     </span>
                 </span>
-                <span data-bind="if: !dateCompleted() && status() == 'scheduled'">
+                            <span data-bind="if: !dateCompleted() && status() == 'scheduled'">
 
 
 
 
-<div id="progressContainer2" class="progress progress-striped active rd-progress-exec progress-striped active indefinite progress-embed" style=""
-    data-bind="css: timeNow() > 109 ? 'progress-striped active' : ''"
+<div id="progressContainer2"
+     class="progress progress-striped active rd-progress-exec progress-striped active indefinite progress-embed"
+     style=""
+     data-bind="css: timeNow() > 109 ? 'progress-striped active' : ''"
 >
 
     <div id="progressBar" class="progress-bar  progress-bar-info"
@@ -2478,14 +2352,15 @@ You do not have access to execute commands on this node.
 </div>
 
                 </span>
-                <span data-bind="if: !dateCompleted() && jobPercentageFixed() >= 0 && status() != 'scheduled'">
+                            <span data-bind="if: !dateCompleted() && jobPercentageFixed() >= 0 && status() != 'scheduled'">
                     <div data-bind="if: isAdhoc() || jobAverageDuration()==0">
 
 
 
 
-<div id="" class="progress progress-striped active rd-progress-exec progress-striped active indefinite progress-embed" style=""
-    data-bind=""
+<div id="" class="progress progress-striped active rd-progress-exec progress-striped active indefinite progress-embed"
+     style=""
+     data-bind=""
 >
 
     <div id="" class="progress-bar  progress-bar-info"
@@ -2505,7 +2380,7 @@ You do not have access to execute commands on this node.
 
 
 <div id="progressContainer2" class="progress  rd-progress-exec progress-embed" style=""
-    data-bind="css: jobPercentageFixed() > 109 ? 'progress-striped active' : ''"
+     data-bind="css: jobPercentageFixed() > 109 ? 'progress-striped active' : ''"
 >
 
     <div id="progressBar" class="progress-bar  "
@@ -2519,272 +2394,271 @@ You do not have access to execute commands on this node.
 
                     </div>
                 </span>
-            </td>
+                        </td>
 
-            <td class="  user text-right autoclickable" style="white-space: nowrap;">
-                <em>by</em>
-                <span data-bind="text: user"></span>
-            </td>
-
-
-        </tr>
-        </tbody>
-    </table>
+                        <td class="  user text-right autoclickable" style="white-space: nowrap;">
+                            <em>by</em>
+                            <span data-bind="text: user"></span>
+                        </td>
 
 
-    <div data-bind="visible: selected() && results().length < 1 " class="panel-body" style="display: none;">
-        <span class="text-muted" data-bind="if: !showReports()">No running executions found</span>
-        <span class="text-muted" data-bind="if: showReports()">No matching activity found</span>
-    </div>
+                    </tr>
+                    </tbody>
+                </table>
 
-    <div data-bind="visible: selected()" class="panel-footer" style="display: none">
-            <ul class="pagination pagination-sm pagination-embed" data-bind="foreach: pageCount() > 1 ? pages() : []">
-                <li data-bind="css: { active: $data.currentPage, disabled: $data.disabled } ">
-                    <a data-bind="attr: { href: ($data.skipped||$data.disabled||$data.currentPage)?'#':$data.url },
+
+                <div data-bind="visible: selected() && results().length < 1 " class="panel-body" style="display: none;">
+                    <span class="text-muted" data-bind="if: !showReports()">No running executions found</span>
+                    <span class="text-muted" data-bind="if: showReports()">No matching activity found</span>
+                </div>
+
+                <div data-bind="visible: selected()" class="panel-footer" style="display: none">
+                    <ul class="pagination pagination-sm pagination-embed"
+                        data-bind="foreach: pageCount() > 1 ? pages() : []">
+                        <li data-bind="css: { active: $data.currentPage, disabled: $data.disabled } ">
+                            <a data-bind="attr: { href: ($data.skipped||$data.disabled||$data.currentPage)?'#':$data.url },
                     click: function(){$data.skipped||$data.disabled||$data.currentPage?null:$root.visitPage($data);}">
                         <span data-bind="if: $data.nextPage">
                             <i class="glyphicon glyphicon-arrow-right"></i>
                         </span>
-                        <span data-bind="if: $data.prevPage">
+                                <span data-bind="if: $data.prevPage">
                             <i class="glyphicon glyphicon-arrow-left"></i>
                         </span>
-                        <span data-bind="if: $data.skipped">
+                                <span data-bind="if: $data.skipped">
                             …
                         </span>
-                        <span data-bind="if: $data.normal">
+                                <span data-bind="if: $data.normal">
                             <span data-bind="text: $data.page">
 
                             </span>
                         </span>
-                    </a>
-                </li>
-            </ul>
-        <span data-bind="if: max() > 0" class="text-info">
+                            </a>
+                        </li>
+                    </ul>
+                    <span data-bind="if: max() > 0" class="text-info">
             showing
             <span data-bind="text: results().length + ' of ' + total()"></span>
         </span>
-        <a href="#" class="textbtn textbtn-default" data-bind="attr: { href: href() } ">
-            Filter activity…
-            <i class="glyphicon glyphicon-search"></i>
-        </a>
+                    <a href="#" class="textbtn textbtn-default" data-bind="attr: { href: href() } ">
+                        Filter activity…
+                        <i class="glyphicon glyphicon-search"></i>
+                    </a>
 
 
-        <div class="pull-right clearfix">
+                    <div class="pull-right clearfix">
 
-            <div data-bind="visible: $root.bulkEditMode()" class="history_bulk_edit">
+                        <div data-bind="visible: $root.bulkEditMode()" class="history_bulk_edit">
                 <span class="textbtn textbtn-default act_bulk_edit_selectall  " data-bind="click: bulkEditSelectAll">
                     Select All
                 </span>
-                <span class="textbtn textbtn-default act_bulk_edit_deselectall  " data-bind="click: bulkEditDeselectAll">
+                            <span class="textbtn textbtn-default act_bulk_edit_deselectall  "
+                                  data-bind="click: bulkEditDeselectAll">
                     Select None
                 </span>
 
-                <span class="btn btn-xs btn-danger"
-                      data-bind=" visible: $root.bulkEditMode(), attr: { disabled: bulkEditIds().length<1 }"
-                      data-toggle="modal"
-                      data-target="#bulkexecdelete">
+                            <span class="btn btn-xs btn-danger"
+                                  data-bind=" visible: $root.bulkEditMode(), attr: { disabled: bulkEditIds().length<1 }"
+                                  data-toggle="modal"
+                                  data-target="#bulkexecdelete">
                     Delete Selected Executions
                 </span>
-                <span class="textbtn textbtn-default"
-                      data-bind="click: $root.toggleBulkEdit, visible: $root.bulkEditMode()">
+                            <span class="textbtn textbtn-default"
+                                  data-bind="click: $root.toggleBulkEdit, visible: $root.bulkEditMode()">
                     <i class="glyphicon glyphicon-remove"></i>
                     Cancel Bulk Delete
                 </span>
-            </div>
-
-
-
-
-            <button class="btn btn-xs btn-warning"
-                    data-bind="click: $root.toggleBulkEdit, visible: !$root.bulkEditMode()">
-                Bulk Delete
-            </button>
-
-
-
-            <div class="modal" id="bulkexecdelete" tabindex="-1" role="dialog"
-                 aria-labelledby="bulkexecdeletetitle" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal"
-                                    aria-hidden="true">&times;</button>
-                            <h4 class="modal-title" id="bulkexecdeletetitle">Bulk Delete Executions</h4>
                         </div>
 
-                        <div class="modal-body">
 
-                            <p>Really delete <strong data-bind="text: $root.bulkEditIds().length"></strong>
-                                Executions?
-                            </p>
+                        <button class="btn btn-xs btn-warning"
+                                data-bind="click: $root.toggleBulkEdit, visible: !$root.bulkEditMode()">
+                            Bulk Delete
+                        </button>
+
+
+                        <div class="modal" id="bulkexecdelete" tabindex="-1" role="dialog"
+                             aria-labelledby="bulkexecdeletetitle" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal"
+                                                aria-hidden="true">&times;
+                                        </button>
+                                        <h4 class="modal-title" id="bulkexecdeletetitle">Bulk Delete Executions</h4>
+                                    </div>
+
+                                    <div class="modal-body">
+
+                                        <p>Really delete <strong data-bind="text: $root.bulkEditIds().length"></strong>
+                                            Executions?
+                                        </p>
+                                    </div>
+
+                                    <div class="modal-footer">
+
+                                        <button type="submit" class="btn btn-default  " data-dismiss="modal">
+                                            Cancel
+                                        </button>
+                                        <button class="btn btn-danger "
+                                                data-bind="click: function(){$root.doBulkDelete('#bulkexecdelete','#bulkexecdeleteresult');}">
+                                            Delete Selected
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
-                        <div class="modal-footer">
 
-                                <button type="submit" class="btn btn-default  " data-dismiss="modal">
-                                    Cancel
-                                </button>
-                                <button class="btn btn-danger "
-                                        data-bind="click: function(){$root.doBulkDelete('#bulkexecdelete','#bulkexecdeleteresult');}" >
-                                    Delete Selected
-                                </button>
+                        <div class="modal" id="bulkexecdeleteresult" tabindex="-1" role="dialog"
+                             aria-labelledby="bulkexecdeleteresult-title" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal"
+                                                aria-hidden="true">&times;
+                                        </button>
+                                        <h4 class="modal-title" id="bulkexecdeleteresult-title">Bulk Delete Executions:
+                                            Results</h4>
+                                    </div>
+
+                                    <div class="modal-body" data-bind="visible: bulkEditProgress()">
+                                        <em>
+                                            <i class="glyphicon glyphicon-time text-info"></i>
+                                            Requesting bulk delete, please wait.
+                                        </em>
+                                    </div>
+                                    <div class="modal-body" data-bind="visible: !bulkEditProgress()">
+
+                                        <p
+                                                data-bind="if: bulkEditResults() && bulkEditResults().requestCount && bulkEditResults().requestCount > 0"
+                                                class="text-info">
+                                            <strong data-bind="text: bulkEditResults().requestCount"></strong>
+                                            Executions were
+                                            attempted.
+                                        </p>
+                                        <p data-bind="if: bulkEditResults() && bulkEditResults().successCount && bulkEditResults().successCount > 0"
+                                           class="text-success">
+                                            <strong data-bind="text: bulkEditResults().successCount"></strong>
+                                            Executions were
+                                            successfully deleted.
+                                        </p>
+                                        <p data-bind="if: bulkEditResults() && bulkEditResults().failedCount && bulkEditResults().failedCount > 0"
+                                           class="text-warning">
+                                            <strong data-bind="text: bulkEditResults().failedCount"></strong> Executions
+                                            could
+                                            not be deleted:
+                                        </p>
+                                        <div
+                                                data-bind="if: bulkEditResults() && bulkEditResults().failures && bulkEditResults().failures.length>0">
+                                            <ul data-bind="foreach: bulkEditResults().failures">
+                                                <li data-bind="text: message"></li>
+                                            </ul>
+                                        </div>
+
+                                        <div
+                                                data-bind="if: bulkEditResults() && bulkEditResults().error">
+                                            <p class="text-danger" data-bind="text: bulkEditResults().error"></p>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="modal-footer">
+
+                                        <button type="submit" class="btn btn-default  " data-dismiss="modal">
+                                            Close
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
 
-            <div class="modal" id="bulkexecdeleteresult" tabindex="-1" role="dialog"
-                 aria-labelledby="bulkexecdeleteresult-title" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal"
-                                    aria-hidden="true">&times;</button>
-                            <h4 class="modal-title" id="bulkexecdeleteresult-title">Bulk Delete Executions: Results</h4>
-                        </div>
+            <script id="history_tokens" type="text/json">
+                {"TOKEN":"ba5f80991ad48ab2aba692121e756a626b01284fe85e104508f4e0c8b0b21b05","URI":"/project/Generate_Update_packages/job/show/8ba4992b-4509-4873-a1f2-29abc6a74e67"}
+            </script>
 
-                        <div class="modal-body" data-bind="visible: bulkEditProgress()">
-                            <em>
-                                <i class="glyphicon glyphicon-time text-info"></i>
-                                Requesting bulk delete, please wait.
-                            </em>
-                        </div>
-                        <div class="modal-body" data-bind="visible: !bulkEditProgress()">
-
-                            <p
-                                    data-bind="if: bulkEditResults() && bulkEditResults().requestCount && bulkEditResults().requestCount > 0"
-                               class="text-info">
-                                <strong data-bind="text: bulkEditResults().requestCount"></strong> Executions were
-                            attempted.
-                            </p>
-                            <p data-bind="if: bulkEditResults() && bulkEditResults().successCount && bulkEditResults().successCount > 0"
-                               class="text-success">
-                                <strong data-bind="text: bulkEditResults().successCount"></strong> Executions were
-                            successfully deleted.
-                            </p>
-                            <p data-bind="if: bulkEditResults() && bulkEditResults().failedCount && bulkEditResults().failedCount > 0"
-                                    class="text-warning">
-                                <strong data-bind="text: bulkEditResults().failedCount"></strong>  Executions could
-                            not be deleted:
-                            </p>
-                            <div
-                                    data-bind="if: bulkEditResults() && bulkEditResults().failures && bulkEditResults().failures.length>0">
-                                <ul data-bind="foreach: bulkEditResults().failures">
-                                    <li data-bind="text: message"></li>
-                                </ul>
-                            </div>
-
-                            <div
-                                    data-bind="if: bulkEditResults() && bulkEditResults().error">
-                                  <p class="text-danger" data-bind="text: bulkEditResults().error"></p>
-                            </div>
-
-                        </div>
-
-                        <div class="modal-footer">
-
-                                <button type="submit" class="btn btn-default  " data-dismiss="modal">
-                                    Close
-                                </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
-</div>
 
+    <!--[if (gt IE 8)|!(IE)]><!-->
+    <script src="/js/ace/ace.js" type="text/javascript"></script>
+    <!--<![endif]-->
+    <script type="text/javascript">
 
-<script id="history_tokens" type="text/json">{"TOKEN":"ba5f80991ad48ab2aba692121e756a626b01284fe85e104508f4e0c8b0b21b05","URI":"/project/Generate_Update_packages/job/show/8ba4992b-4509-4873-a1f2-29abc6a74e67"}</script>
-
-    </div>
-</div>
-
-<!--[if (gt IE 8)|!(IE)]><!--> <script src="/js/ace/ace.js" type="text/javascript"></script>
-<!--<![endif]-->
-<script type="text/javascript">
-
-    fireWhenReady('definition', function (z) {
-        jQuery('.apply_ace').each(function () {
-            _applyAce(this,'400px');
+        fireWhenReady('definition', function (z) {
+            jQuery('.apply_ace').each(function () {
+                _applyAce(this, '400px');
+            });
         });
-    });
 
-</script>
+    </script>
 
 
-<div class="modal fade" id="selectProject" role="dialog" aria-labelledby="selectProjectLabel" aria-hidden="true">
-    <div class="modal-dialog modal-sm">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="selectProjectLabel">Select Project...</h4>
+    <div class="modal fade" id="selectProject" role="dialog" aria-labelledby="selectProjectLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="selectProjectLabel">Select Project...</h4>
+                </div>
+                <form action="/scheduledExecution/index" method="post">
+                    <div class="modal-body" id="selectProjectContent">
+
+                        <input type="hidden" id="jobid" name="id"/>
+                        <select name="project" id="jobProject" class="form-control input-sm">
+                            <option value="Full_Update">Full_Update</option>
+                        </select>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button"
+                                class="btn btn-danger"
+                                data-bind="click: cancel"
+                                data-dismiss="modal">Cancel
+                        </button>
+
+                        <input type="submit" name="_action_copy" value="Yes" id="submittbn" class="btn btn-default"/>
+                    </div>
+                </form>
             </div>
-            <form action="/scheduledExecution/index" method="post" >
-                <div class="modal-body" id="selectProjectContent">
-
-                    <input type="hidden" id="jobid" name="id"/>
-                    <select name="project" id="jobProject" class="form-control input-sm" >
-<option value="Full_Update" >Full_Update</option>
-</select>
-                </div>
-                <div class="modal-footer">
-                    <button type="button"
-                            class="btn btn-danger"
-                            data-bind="click: cancel"
-                            data-dismiss="modal" >Cancel</button>
-
-                    <input type="submit" name="_action_copy" value="Yes" id="submittbn" class="btn btn-default" />
-                </div>
-            </form>
         </div>
     </div>
-</div>
 
 </div>
 
 <div class="container footer">
 
 
+    <div class="row row-space">
+        <div class="col-sm-3  ">
 
+            &copy; Copyright 2017 <a href="http://rundeck.com">Rundeck, Inc.</a>
 
+            All rights reserved.
+        </div>
+        <div class="col-sm-6 text-center ">
 
+            <a href="/menu/welcome" class="version link-bare">
+                Rundeck 2.9.2-1
+            </a>
 
+            <span class="rundeck-version-identity"
+                  data-version-string="2.9.2-1"
+                  data-version-date="2017-08-07"
+                  data-app-id="Rundeck"></span>
+        </div>
+        <div class="col-sm-3 text-right">
 
-
-
-
-
-
-
-<div class="row row-space">
-    <div class="col-sm-3  ">
-
-    &copy; Copyright 2017 <a href="http://rundeck.com">Rundeck, Inc.</a>
-
-    All rights reserved.
+            <a href="/menu/licenses">Licenses</a>
+            &bull;
+            <a href="http://rundeck.org/2.9.2?utm_source=rundeckapp&amp;utm_medium=2.9.2 Linux java 1.8.0_25&amp;utm_campaign=helplink&amp;utm_content=scheduledExecution/show"
+               class="help ">
+                Help
+            </a>
+        </div>
     </div>
-    <div class="col-sm-6 text-center ">
-
-        <a href="/menu/welcome" class="version link-bare">
-            Rundeck 2.9.2-1
-        </a>
-
-        <span class="rundeck-version-identity"
-              data-version-string="2.9.2-1"
-              data-version-date="2017-08-07"
-              data-app-id="Rundeck"></span>
-    </div>
-    <div class="col-sm-3 text-right">
-
-    <a href="/menu/licenses">Licenses</a>
-        &bull;
-        <a href="http://rundeck.org/2.9.2?utm_source=rundeckapp&amp;utm_medium=2.9.2 Linux java 1.8.0_25&amp;utm_campaign=helplink&amp;utm_content=scheduledExecution/show" class="help ">
-            Help
-        </a>
-    </div>
-</div>
 
 </div>
 <!--
