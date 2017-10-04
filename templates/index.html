@@ -14,7 +14,6 @@
             border: 1px solid transparent;
             border-bottom: 0px solid;
         }
-
     </style>
 </head>
 <body>
@@ -71,15 +70,15 @@
     <div class="row">
         <div class="col-sm-12">
             <ul class="nav nav-tabs" id="jobtabs">
-                <li class="active"><a href="#runjob" data-toggle="tab">WEB</a></li>
-                <li class=""><a href="#definition" data-toggle="tab">SOA</a></li>
+                <li class="active"><a href="#web" data-toggle="tab">WEB</a></li>
+                <li class=""><a href="#soa" data-toggle="tab">SOA</a></li>
             </ul>
 
             <div class="tab-content">
-                <div class="tab-pane active" id="runjob">
+                <div class="tab-pane active" id="web">
                     <div class="row">
                         <div class="col-sm-12 ">
-                            <form method="post" class="form-horizontal" role="form"
+                            <form id="form_web" method="post" class="form-horizontal" role="form"
                                   enctype="multipart/form-data">
                                 <div class="panel panel-default panel-tab-content panel-modal-content">
                                     <div class="list-group">
@@ -87,19 +86,20 @@
                                             <div class="row">
                                                 <div class="col-sm-9">
                                                     <div class="form-group ">
-                                                        <label class="col-sm-2 control-label">升级的应用</label>
+                                                        <label class="col-sm-2 control-label">WEB应用</label>
                                                         <div class="col-sm-9">
                                                             <div class="row">
-                                                                <div class="col-sm-8">
-                                                                    <input type="text" size="40" name=""
-                                                                           id="soa_input_app" class="form-control">
+                                                                <div class="col-sm-7">
+                                                                    <input type="text" size="40" name="" readonly
+                                                                           id="web_input_app" class="form-control">
                                                                 </div>
 
-                                                                <div class="col-sm-4" }>
-                                                                    <select id="soa_select_app" class="form-control">
-                                                                        <option value="">--chose--</option>
-                                                                        <option value="eshop-wap">eshop-wap
-                                                                        </option>
+                                                                <div class="col-sm-5">
+                                                                    <select id="web_select_app" class="form-control" onchange="web_select()">
+                                                                        <option value="">--choose--</option>
+                                                                        {% for app in protypes['web'] %}
+                                                                            <option value="{{ app }}">{{ app }}</option>
+                                                                        {% end %}
                                                                     </select>
                                                                 </div>
                                                             </div>
@@ -115,33 +115,33 @@
                                                     <div class="form-group">
                                                         <label class="col-sm-2 control-label">更新的文件列表</label>
                                                         <div class="col-sm-9">
-                                                            <textarea oninput="format();" id="soa_txtarea_before"
-                                                                      class="form-control" rows="8"></textarea>
+                                                            <textarea oninput="format_web();" id="web_txtarea_before"
+                                                                      class="form-control webdis" rows="8"></textarea>
                                                         </div>
                                                     </div>
 
-                                                    <div id="soa_div_after" class="form-group" style="display: none">
+                                                    <div id="web_div_after" class="form-group" style="display: none">
                                                         <label class="col-sm-2 control-label">格式化后文件列表</label>
                                                         <div class="col-sm-9">
-                                                            <textarea id="soa_txtarea_after" class="form-control"
-                                                                      rows="8"></textarea>
+                                                            <textarea id="web_txtarea_after" class="form-control"
+                                                                      rows="8" readonly></textarea>
                                                         </div>
                                                     </div>
 
                                                     <div class="form-group">
                                                         <label class="col-sm-2 control-label"
-                                                               for="extra.loglevel">是否重启</label>
+                                                               for="web_reboot">是否重启</label>
                                                         <div class="col-sm-10">
                                                             <label class="radio-inline">
-                                                                <input type="radio" name="extra.loglevel"
+                                                                <input type="radio" name="web_isreboot" class="webdis weblast"
                                                                        checked="checked" value="reboot"
-                                                                       id="loglevel_info"/>
+                                                                       id="web_reboot"/>
                                                                 重启
                                                             </label>
                                                             <label class="radio-inline">
-                                                                <input type="radio" name="extra.loglevel"
+                                                                <input type="radio" name="web_isreboot" class="webdis weblast"
                                                                        value="noreboot"
-                                                                       id="loglevel_debug"/>
+                                                                       id="web_noreboot"/>
                                                                 不重启
                                                             </label>
 
@@ -156,7 +156,7 @@
                                                     <div class="form-group">
                                                         <label class="col-sm-2 control-label"></label>
                                                         <div class="col-sm-9">
-                                                            <button type="button" name="soa_btn_sub" id="soa_btn_sub">
+                                                            <button type="button" name="web_btn_sub" id="web_btn_sub" class="webdis weblast">
                                                                 确认提交
                                                             </button>
                                                         </div>
@@ -175,10 +175,10 @@
                 </div>
 
                 <!--<div id="definition" class="tab-pane panel panel-default panel-tab-content">-->
-                <div id="definition" class="tab-pane">
+                <div id="soa" class="tab-pane">
                     <div class="row">
                         <div class="col-sm-12 ">
-                            <form method="post" class="form-horizontal" role="form"
+                            <form id="form_soa" method="post" class="form-horizontal" role="form"
                                   enctype="multipart/form-data">
                                 <div class="panel panel-default panel-tab-content panel-modal-content">
                                     <div class="list-group">
@@ -186,20 +186,21 @@
                                             <div class="row">
                                                 <div class="col-sm-9">
                                                     <div class="form-group ">
-                                                        <label class="col-sm-2 control-label">升级的应用222</label>
+                                                        <label class="col-sm-2 control-label">SOA应用</label>
                                                         <div class="col-sm-9">
                                                             <div class="row">
-                                                                <div class="col-sm-8">
+                                                                <div class="col-sm-7">
                                                                     <input type="text" size="40" name=""
-                                                                           id="soa_input_app" class="form-control">
+                                                                           id="soa_input_app" class="dis form-control">
                                                                 </div>
 
-                                                                <div class="col-sm-4" }>
+                                                                <div class="col-sm-5">
                                                                     <select id="soa_select_app"
                                                                             class="form-control">
-                                                                        <option value="">--chose--</option>
-                                                                        <option value="eshop-wap">eshop-wap
-                                                                        </option>
+                                                                        <option value="">--choose--</option>
+                                                                        {% for app in protypes['soa'] %}
+                                                                        <option value="{{ app }}">{{ app }}</option>
+                                                                        {% end %}
                                                                     </select>
                                                                 </div>
                                                             </div>
@@ -215,7 +216,7 @@
                                                     <div class="form-group">
                                                         <label class="col-sm-2 control-label">更新的文件列表</label>
                                                         <div class="col-sm-9">
-                                                            <textarea oninput="format();" id="soa_txtarea_before"
+                                                            <textarea oninput="format_soa();" id="soa_txtarea_before"
                                                                       class="form-control" rows="8"></textarea>
                                                         </div>
                                                     </div>
@@ -285,6 +286,7 @@
 <script src="static/js/jquery-1.12.3.min.js"></script>
 <script src="static/js/myform.js"></script>
 <script src="static/js/bootstrap.min.js"></script>
+<script src="static/js/jquery.validate.min.js"></script>
 
 </body>
 </html>

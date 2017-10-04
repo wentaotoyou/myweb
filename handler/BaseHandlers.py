@@ -1,11 +1,27 @@
 # coding: utf-8
 
 import tornado.web
+import os
+import ConfigParser
 
+
+class MyConfigParser(ConfigParser.SafeConfigParser):
+    def optionxform(self, optionstr):
+        return optionstr
+
+def parse_config():
+    # config_file = os.path.join(__file__, './config)
+    cp = MyConfigParser(allow_no_value=True)
+    cp.read('conf/myweb.conf')
+    protypes = {}
+    protypes['soa'] = cp.options('soa')
+    protypes['web'] = cp.options('web')
+    return protypes
 
 class IndexHandler(tornado.web.RequestHandler):
     def get(self):
-        self.render('index.html')
+        protypes = parse_config()
+        self.render('index.html', protypes=protypes)
 
 
 class Test(tornado.web.RequestHandler):
