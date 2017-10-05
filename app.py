@@ -14,6 +14,7 @@ define("port", default=80, help='Run on the given port', type=int)
 if __name__ == '__main__':
     tornado.options.parse_command_line()
     app = tornado.web.Application(
+        # autoreload=True,
         handlers=url,
         template_path=os.path.join(os.path.dirname(__file__), "templates"),
         static_path=os.path.join(os.path.dirname(__file__), "static")

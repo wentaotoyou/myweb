@@ -1,5 +1,6 @@
 # coding: utf-8
 
+import tornado
 import tornado.web
 import os
 import ConfigParser
@@ -8,6 +9,7 @@ import ConfigParser
 class MyConfigParser(ConfigParser.SafeConfigParser):
     def optionxform(self, optionstr):
         return optionstr
+
 
 def parse_config():
     # config_file = os.path.join(__file__, './config)
@@ -18,32 +20,30 @@ def parse_config():
     protypes['web'] = cp.options('web')
     return protypes
 
+
 class IndexHandler(tornado.web.RequestHandler):
     def get(self):
         protypes = parse_config()
         self.render('index.html', protypes=protypes)
 
 
-class Test(tornado.web.RequestHandler):
+class WebUpdate(tornado.web.RequestHandler):
     def post(self):
-        filelist = self.get_argument('filelist')
-        print type(filelist)
+        isupdate = self.get_argument('isupdate')
+        app = self.get_argument('web_input_app')
+        filelist = self.get_argument('web_txtarea_after')
+        filelist = filelist.split('\n')
 
+        notexist = []
+        for file in filelist:
+            file_path = os.path.join('/data/web', app, file)
+            if not os.path.isfile(file_path):
+                notexist.append(file_path)
 
-class upweb(tornado.web.RequestHandler):
-    def get(self):
-        self.render('upweb.html')
-
-
-class upproviders(tornado.web.RequestHandler):
-    def get(self):
-        self.render('upproviders.html')
-
-
-class AppList(tornado.web.RequestHandler):
-    def get(self):
-        protype = self.get_argument('protype')
-        if protype == "web":
-            self.write('web')
+        if notexist:
+            cb = {"status_code": 405, "filelist": notexist}
         else:
-            self.write('soa')
+            cb = {"status_code": 200}
+
+        print cb
+        self.write(cb)

@@ -86,30 +86,28 @@
                                             <div class="row">
                                                 <div class="col-sm-9">
                                                     <div class="form-group ">
+                                                        <input type="text" name="isupdate" id="isupdate"
+                                                               style="display: none" value="0">
                                                         <label class="col-sm-2 control-label">WEB应用</label>
                                                         <div class="col-sm-9">
                                                             <div class="row">
                                                                 <div class="col-sm-7">
-                                                                    <input type="text" size="40" name="" readonly
+                                                                    <input type="text" size="40" name="web_input_app"
+                                                                           readonly
                                                                            id="web_input_app" class="form-control">
                                                                 </div>
 
                                                                 <div class="col-sm-5">
-                                                                    <select id="web_select_app" class="form-control" onchange="web_select()">
+                                                                    <select id="web_select_app" class="form-control"
+                                                                            onchange="web_select()">
                                                                         <option value="">--choose--</option>
                                                                         {% for app in protypes['web'] %}
-                                                                            <option value="{{ app }}">{{ app }}</option>
+                                                                        <option value="{{ app }}">{{ app }}</option>
                                                                         {% end %}
                                                                     </select>
                                                                 </div>
                                                             </div>
                                                         </div>
-
-                                                        <!--
-                                                        <div class="col-sm-10 col-sm-offset-2">
-                                                            <p class="text-warning">Hello</p>
-                                                        </div>
-                                                        -->
                                                     </div>
 
                                                     <div class="form-group">
@@ -124,7 +122,8 @@
                                                         <label class="col-sm-2 control-label">格式化后文件列表</label>
                                                         <div class="col-sm-9">
                                                             <textarea id="web_txtarea_after" class="form-control"
-                                                                      rows="8" readonly></textarea>
+                                                                      rows="8" readonly
+                                                                      name="web_txtarea_after"></textarea>
                                                         </div>
                                                     </div>
 
@@ -133,13 +132,15 @@
                                                                for="web_reboot">是否重启</label>
                                                         <div class="col-sm-10">
                                                             <label class="radio-inline">
-                                                                <input type="radio" name="web_isreboot" class="webdis weblast"
-                                                                       checked="checked" value="reboot"
+                                                                <input type="radio" name="web_isreboot"
+                                                                       class="webdis weblast"
+                                                                       checked="true" value="reboot"
                                                                        id="web_reboot"/>
                                                                 重启
                                                             </label>
                                                             <label class="radio-inline">
-                                                                <input type="radio" name="web_isreboot" class="webdis weblast"
+                                                                <input type="radio" name="web_isreboot"
+                                                                       class="webdis weblast"
                                                                        value="noreboot"
                                                                        id="web_noreboot"/>
                                                                 不重启
@@ -156,18 +157,17 @@
                                                     <div class="form-group">
                                                         <label class="col-sm-2 control-label"></label>
                                                         <div class="col-sm-9">
-                                                            <button type="button" name="web_btn_sub" id="web_btn_sub" class="webdis weblast">
+                                                            <button type="button" name="web_btn_sub" id="web_btn_sub"
+                                                                    class="webdis weblast btn"
+                                                                    onclick="web_submit();">
                                                                 确认提交
                                                             </button>
                                                         </div>
                                                     </div>
-
                                                 </div>
-
                                             </div>
                                         </div>
                                     </div>
-
                                 </div>
                             </form>
                         </div>
@@ -279,6 +279,24 @@
             </div>
         </div>
     </div>
+
+    <div class="modal fade" id="mymodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title" id="myModalLabel">原文件不存在</h4>
+                </div>
+                <div id="modal_body" class="modal-body">
+                    <ul id="ul_modal"></ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">返回修改</button>
+                    <button id="modal_btn" type="button" class="btn btn-default">仍然提交</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div>
 </div>
 
 </body>
@@ -286,7 +304,7 @@
 <script src="static/js/jquery-1.12.3.min.js"></script>
 <script src="static/js/myform.js"></script>
 <script src="static/js/bootstrap.min.js"></script>
-<script src="static/js/jquery.validate.min.js"></script>
+<!--<script src="static/js/jquery.validate.min.js"></script>-->
 
 </body>
 </html>
