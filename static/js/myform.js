@@ -20,90 +20,93 @@ function web_submit() {
 
 $(document).ready(function () {
     $('.webdis').attr("disabled", "disabled");
-    // $('.soadis').attr("disabled", "disabled");
-    $('#web_select_app').change(function () {
-        var selectText = $('#web_select_app').find("option:selected").val();
+    $('.soadis').attr("disabled", "disabled");
+
+    $("select").change(function () {
+        // protype: project type, web or soa
+        var protype = $(".nav-tabs li[class='active'] a[data-toggle='tab']").text().toLowerCase();
+        var selectText = $("#" + protype + "_select_app option:selected").val();
+
         if (selectText) {
-            if ($('#web_txtarea_after').val()) {
-                $(".webdis").removeAttr("disabled")
+            if ($("#" + protype + "_txtarea_after").val()) {
+                $("." + protype + "dis").removeAttr("disabled")
             }
-            $('#web_txtarea_before').removeAttr("disabled");
-            $('#web_input_app').val(selectText);
-            $('#web_input_app').removeAttr('disabled');
-            format_web();
+            $("#" + protype + "_txtarea_before").removeAttr("disabled");
+            $("#" + protype + "_input_app").val(selectText);
+            // $("#" + protype + "_input_app").removeAttr("disabled");
+            format(protype);
         } else {
-            $('.webdis').attr("disabled", "disabled");
-            $('#web_input_app').val(selectText);
+            $("." + protype + "dis").attr('disabled', "disabled");
+            $("#" + protype + "_input_app").val(selectText);
         }
     });
 
     // modal close
     $("#mymodal").on('hidden.bs.modal', function () {
-        $("#ul_modal li").remove();
+        $("#ul_modal").find("li").remove();
     });
 
     $("#modal_btn").click(function () {
-        $("#isupdate").val("1");
+        $("#"+protype+"_input_isupdate").val("1");    //1: 强制升级; 0: 不升级，返回检查文件路径
         web_submit();
     })
 });
 
-function format_soa() {
-    var txtr_before = document.getElementById('soa_txtarea_before');
-    var txtr_after = document.getElementById('soa_txtarea_after');
-    var filelist = txtr_before.value;
-    if (filelist.length == 0) {
-        // alert('no lines');
-        $("#soa_div_after").hide();
-        return 11;
-    }
-
-    filelist = filelist.replace(/\\/g, '/');
-    filelist = filelist.replace(/\.java/g, '\.class');
-
-    row_num = filelist.split('\n').length;
-    if (row_num > 8) {
-        row_num = 8
-    }
-
-    txtr_after.value = filelist;
-    txtr_before.rows = row_num;
-    txtr_after.rows = row_num;
-
-    $("#soa_div_after").show();
-}
-
-
-function format_web() {
-    var txtr_before = document.getElementById('web_txtarea_before');
-    var txtr_after = document.getElementById('web_txtarea_after');
-    var filelist = txtr_before.value;
-    if (filelist.length == 0) {
-        // alert('no lines');
-        $("#web_txtarea_after").val('');
-        $("#web_div_after").hide();
-        $(".weblast").attr("disabled", "disabled");
-        return 11;
-    }
-
+function parse_web(filelist) {
     filelist = filelist.replace(/\\/g, '/');
     filelist = filelist.replace(/\n(\n)*( )*(\n)*\n/g, '\n');
     filelist = filelist.replace(/\.java/g, '\.class');
     filelist = filelist.replace(/.*?src\/main\/(java|resources)\//g, 'WEB-INF/classes/');
     filelist = filelist.replace(/.*?src\/main\/webapp\//g, '');
     filelist = filelist.replace(/(^com\/|^.*?\/com\/)/gm, 'WEB-INF/classes/com/');
+    return filelist
+}
 
-    app = $('#web_select_app').find("option:selected").val();
-    // alert(app);
-    if (app) {
-        re_app = new RegExp("^.*?" + app + "/", "gm");
-        filelist = filelist.replace(re_app, '')
+function parse_soa() {
+    return 'hello';
+}
+
+function format(protype) {
+    var txtr_before = document.getElementById(protype + '_txtarea_before');
+    var txtr_after = document.getElementById(protype + '_txtarea_after');
+    var filelist = txtr_before.value;
+
+    var div_after = $("#" + protype + "_div_after");
+
+    if (filelist.length === 0) {
+        // alert('no lines');
+        $("#" + protype + "_txtarea_after").val('');
+        div_after.hide();
+        $("." + protype + "last").attr("disabled", "disabled");
+        return 11;
     }
 
-    if (/\.class$/gm.test(filelist)) {
-        $("#web_reboot").prop('checked', true)
-    } else {
-        $("#web_noreboot").prop('checked', true)
+    if (protype === 'web') {
+        pfilelist = parse_web(filelist);
+
+        app = $('#web_select_app').find("option:selected").val();
+        if (app) {
+            re_app = new RegExp("^.*?" + app + "/", "gm");
+            filelist = pfilelist.replace(re_app, '')
+        }
+
+        if (/\.class$/gm.test(filelist)) {
+            $("#web_radio_reboot").prop('checked', true)
+        } else {
+            $("#web_radio_noreboot").prop('checked', true)
+        }
+    } else if (protype === 'soa') {
+        pfilelist = parse_soa();
+        app = $('#soa_select_app').find("option:selected").val();
+        if (app) {
+            re_app = new RegExp("^.*?" + app + "/", "gm");
+            filelist = pfilelist.replace(re_app, '')
+        }
+        if (/\.class$/gm.test(filelist)) {
+            $("#soa_radio_reboot").prop('checked', true)
+        } else {
+            $("#soa_radio_noreboot").prop('checked', true)
+        }
     }
 
     row_num = filelist.split('\n').length;
@@ -115,12 +118,7 @@ function format_web() {
     txtr_before.rows = row_num;
     txtr_after.rows = row_num;
 
-    $("#web_div_after").show();
+    div_after.show();
     // $("#web_div_after").attr("readonly", "readonly");
-    $(".webdis").removeAttr("disabled")
-}
-
-function web_select() {
-    var select = document.getElementById('web_select_app');
-    var app = select.options[select.selectedIndex].value;
+    $("." + protype + "dis").removeAttr("disabled")
 }

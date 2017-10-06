@@ -4,15 +4,14 @@ import tornado
 import tornado.web
 import os
 import ConfigParser
-
+from functions import compile
 
 class MyConfigParser(ConfigParser.SafeConfigParser):
     def optionxform(self, optionstr):
         return optionstr
 
-
+# read the config file
 def parse_config():
-    # config_file = os.path.join(__file__, './config)
     cp = MyConfigParser(allow_no_value=True)
     cp.read('conf/myweb.conf')
     protypes = {}
@@ -29,7 +28,7 @@ class IndexHandler(tornado.web.RequestHandler):
 
 class WebUpdate(tornado.web.RequestHandler):
     def post(self):
-        isupdate = self.get_argument('isupdate')
+        isupdate = self.get_argument('web_input_isupdate')
         app = self.get_argument('web_input_app')
         filelist = self.get_argument('web_txtarea_after')
         filelist = filelist.split('\n')
@@ -40,7 +39,7 @@ class WebUpdate(tornado.web.RequestHandler):
             if not os.path.isfile(file_path):
                 notexist.append(file_path)
 
-        if notexist:
+        if notexist and isupdate == '1':
             cb = {"status_code": 405, "filelist": notexist}
         else:
             cb = {"status_code": 200}

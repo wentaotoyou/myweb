@@ -10,9 +10,8 @@
             padding-top: 70px;
         }
 
-        .nav-tabs {
-            border: 1px solid transparent;
-            border-bottom: 0px solid;
+        .panel {
+            border-top: 0px solid;
         }
     </style>
 </head>
@@ -61,7 +60,7 @@
 
     <div class="row">
         <div class="col-sm-12">
-            <a href="###" class="primary" style="font-size: 30px">
+            <a href="/" class="primary" style="font-size: 30px">
                 <i class="glyphicon glyphicon-book"></i>
                 文件更新</a>
         </div>
@@ -86,20 +85,19 @@
                                             <div class="row">
                                                 <div class="col-sm-9">
                                                     <div class="form-group ">
-                                                        <input type="text" name="isupdate" id="isupdate"
+                                                        <input name="web_input_isupdate" id="web_input_isupdate"
                                                                style="display: none" value="0">
                                                         <label class="col-sm-2 control-label">WEB应用</label>
                                                         <div class="col-sm-9">
                                                             <div class="row">
                                                                 <div class="col-sm-7">
-                                                                    <input type="text" size="40" name="web_input_app"
+                                                                    <input size="40" name="web_input_app"
                                                                            readonly
                                                                            id="web_input_app" class="form-control">
                                                                 </div>
 
                                                                 <div class="col-sm-5">
-                                                                    <select id="web_select_app" class="form-control"
-                                                                            onchange="web_select()">
+                                                                    <select id="web_select_app" class="form-control">
                                                                         <option value="">--choose--</option>
                                                                         {% for app in protypes['web'] %}
                                                                         <option value="{{ app }}">{{ app }}</option>
@@ -113,7 +111,7 @@
                                                     <div class="form-group">
                                                         <label class="col-sm-2 control-label">更新的文件列表</label>
                                                         <div class="col-sm-9">
-                                                            <textarea oninput="format_web();" id="web_txtarea_before"
+                                                            <textarea oninput="format('web');" id="web_txtarea_before"
                                                                       class="form-control webdis" rows="8"></textarea>
                                                         </div>
                                                     </div>
@@ -129,28 +127,22 @@
 
                                                     <div class="form-group">
                                                         <label class="col-sm-2 control-label"
-                                                               for="web_reboot">是否重启</label>
+                                                               for="web_radio_reboot">是否重启</label>
                                                         <div class="col-sm-10">
                                                             <label class="radio-inline">
-                                                                <input type="radio" name="web_isreboot"
+                                                                <input type="radio" name="web_radio_isreboot"
                                                                        class="webdis weblast"
                                                                        checked="true" value="reboot"
-                                                                       id="web_reboot"/>
+                                                                       id="web_radio_reboot"/>
                                                                 重启
                                                             </label>
                                                             <label class="radio-inline">
-                                                                <input type="radio" name="web_isreboot"
+                                                                <input type="radio" name="web_radio_isreboot"
                                                                        class="webdis weblast"
                                                                        value="noreboot"
-                                                                       id="web_noreboot"/>
+                                                                       id="web_radio_noreboot"/>
                                                                 不重启
                                                             </label>
-
-                                                            <!--
-                                                            <div class="help-block">
-                                                                Debug level produces more output
-                                                            </div>
-                                                            -->
                                                         </div>
                                                     </div>
 
@@ -174,8 +166,7 @@
                     </div>
                 </div>
 
-                <!--<div id="definition" class="tab-pane panel panel-default panel-tab-content">-->
-                <div id="soa" class="tab-pane">
+                <div class="tab-pane" id="soa">
                     <div class="row">
                         <div class="col-sm-12 ">
                             <form id="form_soa" method="post" class="form-horizontal" role="form"
@@ -186,17 +177,20 @@
                                             <div class="row">
                                                 <div class="col-sm-9">
                                                     <div class="form-group ">
+                                                        <input name="soa_input_isupdate" id="soa_input_isupdate"
+                                                               style="display: none" value="0">
                                                         <label class="col-sm-2 control-label">SOA应用</label>
                                                         <div class="col-sm-9">
                                                             <div class="row">
                                                                 <div class="col-sm-7">
-                                                                    <input type="text" size="40" name=""
-                                                                           id="soa_input_app" class="dis form-control">
+                                                                    <input size="40" name="soa_input_app"
+                                                                           readonly
+                                                                           id="soa_input_app" class="form-control">
                                                                 </div>
 
                                                                 <div class="col-sm-5">
-                                                                    <select id="soa_select_app"
-                                                                            class="form-control">
+                                                                    <select id="soa_select_app" class="form-control"
+                                                                            onchange="soa_select()">
                                                                         <option value="">--choose--</option>
                                                                         {% for app in protypes['soa'] %}
                                                                         <option value="{{ app }}">{{ app }}</option>
@@ -205,45 +199,41 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-
-                                                        <!--
-                                                        <div class="col-sm-10 col-sm-offset-2">
-                                                            <p class="text-warning">Hello</p>
-                                                        </div>
-                                                        -->
                                                     </div>
 
                                                     <div class="form-group">
                                                         <label class="col-sm-2 control-label">更新的文件列表</label>
                                                         <div class="col-sm-9">
                                                             <textarea oninput="format_soa();" id="soa_txtarea_before"
-                                                                      class="form-control" rows="8"></textarea>
+                                                                      class="form-control soadis" rows="8"></textarea>
                                                         </div>
                                                     </div>
 
-                                                    <div id="soa_div_after" class="form-group"
-                                                         style="display: none">
+                                                    <div id="soa_div_after" class="form-group" style="display: none">
                                                         <label class="col-sm-2 control-label">格式化后文件列表</label>
                                                         <div class="col-sm-9">
                                                             <textarea id="soa_txtarea_after" class="form-control"
-                                                                      rows="8"></textarea>
+                                                                      rows="8" readonly
+                                                                      name="soa_txtarea_after"></textarea>
                                                         </div>
                                                     </div>
 
                                                     <div class="form-group">
                                                         <label class="col-sm-2 control-label"
-                                                               for="extra.loglevel">是否重启</label>
+                                                               for="soa_radio_reboot">是否重启</label>
                                                         <div class="col-sm-10">
                                                             <label class="radio-inline">
-                                                                <input type="radio" name="extra.loglevel"
-                                                                       checked="checked" value="reboot"
-                                                                       id="loglevel_info"/>
+                                                                <input type="radio" name="soa_radio_isreboot"
+                                                                       class="soadis soalast"
+                                                                       checked="true" value="reboot"
+                                                                       id="soa_radio_reboot"/>
                                                                 重启
                                                             </label>
                                                             <label class="radio-inline">
-                                                                <input type="radio" name="extra.loglevel"
+                                                                <input type="radio" name="soa_radio_isreboot"
+                                                                       class="soadis soalast"
                                                                        value="noreboot"
-                                                                       id="loglevel_debug"/>
+                                                                       id="soa_radio_noreboot"/>
                                                                 不重启
                                                             </label>
 
@@ -258,19 +248,17 @@
                                                     <div class="form-group">
                                                         <label class="col-sm-2 control-label"></label>
                                                         <div class="col-sm-9">
-                                                            <button type="button" name="soa_btn_sub"
-                                                                    id="soa_btn_sub">
+                                                            <button type="button" name="soa_btn_sub" id="soa_btn_sub"
+                                                                    class="soadis soalast btn"
+                                                                    onclick="soa_submit();">
                                                                 确认提交
                                                             </button>
                                                         </div>
                                                     </div>
-
                                                 </div>
-
                                             </div>
                                         </div>
                                     </div>
-
                                 </div>
                             </form>
                         </div>
@@ -285,7 +273,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                    <h4 class="modal-title" id="myModalLabel">原文件不存在</h4>
+                    <h4 class="modal-title" id="myModalLabel">不存在的文件</h4>
                 </div>
                 <div id="modal_body" class="modal-body">
                     <ul id="ul_modal"></ul>
