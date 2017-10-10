@@ -9,11 +9,15 @@ function web_submit() {
         // dataType: 'json',
         success: function (data, textStatus) {
             console.log(data);
-            data.filelist.forEach(function (value, index, array) {
-                // $("#modal_body").append("<li>" + value + "</li>");
-                $("#ul_modal").append("<li>" + value + "</li>");
-            });
-            $('#mymodal').modal('show')
+            if (data.status_code === 200) {
+                $("#whole").load("/console")
+            } else if (data.status_code === 405) {
+                data.filelist.forEach(function (value, index, array) {
+                    // $("#modal_body").append("<li>" + value + "</li>");
+                    $("#ul_modal").append("<li>" + value + "</li>");
+                });
+                $('#mymodal').modal('show')
+            }
         }
     })
 }
@@ -47,7 +51,7 @@ $(document).ready(function () {
     });
 
     $("#modal_btn").click(function () {
-        $("#"+protype+"_input_isupdate").val("1");    //1: 强制升级; 0: 不升级，返回检查文件路径
+        $("#" + protype + "_input_isupdate").val("1");    //1: 强制升级; 0: 不升级，返回检查文件路径
         web_submit();
     })
 });
