@@ -34,15 +34,15 @@ function web_submit() {
         data[this.name] = this.value;
     });
 
+    $("#whole").load('/console', function () {
+        pre = $("#out")
+    });
+
     var host = 'ws://127.0.0.1/webuphandler';
     var ws = new WebSocket(host);
-
-    var pre;
+    
     ws.onopen = function (evt) {
         ws.send(JSON.stringify(data));
-        $("#whole").load('/console', function () {
-            pre = $("#out")
-        });
     };
 
     ws.onmessage = function (evt2) {

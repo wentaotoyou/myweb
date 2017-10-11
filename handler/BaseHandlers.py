@@ -41,8 +41,9 @@ class WebUpHandler(tornado.websocket.WebSocketHandler):
         app = data['web_input_app']
         print app
 
-        jk = self.application.jenkins('http://192.168.1.218:8080', username='admin', password='admin')
-        jk.build(app, self)
+        # jk = self.application.jenkins('http://192.168.1.218:8080', username='admin', password='admin')
+        # jk.build(app, self)
+        self.write_message('test feedback')
 
 class IndexHandler(tornado.web.RequestHandler):
     def get(self):
