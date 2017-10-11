@@ -6,5 +6,6 @@ url = [
     (r'/', IndexHandler),
     (r'/webupdate', WebUpdate),
     (r'/console', Console),
-    (r'/uphandler', UpHandler),
+    (r'/webuphandler', WebUpHandler),
+    (r'/isexist', IsExist)
 ]

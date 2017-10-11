@@ -1,18 +1,3 @@
-<script>
-    var host = 'ws://127.0.0.1/uphandler';
-    var ws = new WebSocket(host);
-
-    ws.onmessage = function (evt) {
-        $("#out").append('<pre>' + evt.data + '</pre>')
-    };
-
-    function clk() {
-        ws.send('hello')
-    }
-
-</script>
-
-<body onload="onload()">
-<div id="out"></div>
-<button type="button" onclick="clk()">pouch server</button>
+<body>
+<pre id="out" style="white-space: pre-wrap; word-wrap: break-word;">Jenkins编绎信息</pre>
 </body>

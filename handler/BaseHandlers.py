@@ -1,13 +1,12 @@
 # coding: utf-8
 
+import os
+import json
+import ConfigParser
 import tornado
 import tornado.web
 import tornado.websocket
-import os
-import ConfigParser
 
-
-# from functions import compile
 
 class MyConfigParser(ConfigParser.SafeConfigParser):
     def optionxform(self, optionstr):
@@ -29,14 +28,21 @@ class Console(tornado.web.RequestHandler):
         self.render('console.html')
 
 
-class UpHandler(tornado.websocket.WebSocketHandler):
+class WebUpHandler(tornado.websocket.WebSocketHandler):
     def open(self):
-        # self.write_message('open')
         pass
 
     def on_message(self, message):
-        self.write_message('copy that %s' % message)
+        # self.write_message('copy that %s' % message)
+        data = json.loads(message)
+        print data
+        filelist = data['web_txtarea_after']
+        isreboot = data['web_radio_isreboot']
+        app = data['web_input_app']
+        print app
 
+        jk = self.application.jenkins('http://192.168.1.218:8080', username='admin', password='admin')
+        jk.build(app, self)
 
 class IndexHandler(tornado.web.RequestHandler):
     def get(self):
@@ -46,9 +52,15 @@ class IndexHandler(tornado.web.RequestHandler):
 
 class WebUpdate(tornado.web.RequestHandler):
     def post(self):
-        isupdate = self.get_argument('web_input_isupdate')
         app = self.get_argument('web_input_app')
         filelist = self.get_argument('web_txtarea_after')
+        filelist = filelist.split('\n')
+
+
+class IsExist(tornado.web.RequestHandler):
+    def post(self):
+        app = self.get_argument('app')
+        filelist = self.get_argument('filelist')
         filelist = filelist.split('\n')
 
         notexist = []
@@ -57,10 +69,8 @@ class WebUpdate(tornado.web.RequestHandler):
             if not os.path.isfile(file_path):
                 notexist.append(file_path)
 
-        if notexist and isupdate == '0':
+        if notexist:
             cb = {"status_code": 405, "filelist": notexist}
         else:
             cb = {"status_code": 200}
-
-        print cb
         self.write(cb)

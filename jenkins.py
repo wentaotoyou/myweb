@@ -42,8 +42,8 @@ class Jenkins:
 
         return job_info
 
-    def build(self, app, ws):
-        ws = ws     # websocket
+    def build(self, app, hd):
+        hd = hd     # websocket 实例
         app = app
         base_url = self._url
         job_url = base_url + '/job/%s' % app
@@ -73,7 +73,7 @@ class Jenkins:
             headers = res.headers
 
             if headers['Content-Length'] != 0:
-                ws.send_message(res.text)
+                hd.write_message(res.text)
                 pos = {'start': headers['X-Text-Size']}
                 if headers.get('X-more-Data', False):
                     time.sleep(1)

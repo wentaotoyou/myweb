@@ -1,19 +1,22 @@
-function web_submit() {
-    var params = $('#form_web').serialize();
+function checkFiles() {
+    var protype = $(".nav-tabs li[class='active'] a[data-toggle='tab']").text().toLowerCase();
+    filelist = document.getElementById(protype + '_txtarea_after').value;
+
+    var obj = document.getElementById(protype + '_select_app');
+    var index = obj.selectedIndex;
+    var app = obj.options[index].value;
 
     $.ajax({
-        url: '/webupdate',
+        url: '/isexist',
         type: 'POST',
         async: true,
-        data: params,
-        // dataType: 'json',
+        data: {'app': app, 'filelist': filelist},
+        dataType: 'json',
         success: function (data, textStatus) {
-            console.log(data);
             if (data.status_code === 200) {
-                $("#whole").load("/console")
+                web_submit();
             } else if (data.status_code === 405) {
                 data.filelist.forEach(function (value, index, array) {
-                    // $("#modal_body").append("<li>" + value + "</li>");
                     $("#ul_modal").append("<li>" + value + "</li>");
                 });
                 $('#mymodal').modal('show')
@@ -22,13 +25,41 @@ function web_submit() {
     })
 }
 
+function web_submit() {
+    // var params = $('#form_web').serialize();
+    var params = $('#form_web').serializeArray();
+
+    var data = {};
+    $.each(params, function () {
+        data[this.name] = this.value;
+    });
+
+    var host = 'ws://127.0.0.1/webuphandler';
+    var ws = new WebSocket(host);
+
+    var pre;
+    ws.onopen = function (evt) {
+        ws.send(JSON.stringify(data));
+        $("#whole").load('/console', function () {
+            pre = $("#out")
+        });
+    };
+
+    ws.onmessage = function (evt2) {
+        if (evt2.data !== "") {
+            pre.append(evt2.data);
+        }
+    };
+}
+
 $(document).ready(function () {
     $('.webdis').attr("disabled", "disabled");
     $('.soadis').attr("disabled", "disabled");
+    var protype = $(".nav-tabs li[class='active'] a[data-toggle='tab']").text().toLowerCase();
 
     $("select").change(function () {
         // protype: project type, web or soa
-        var protype = $(".nav-tabs li[class='active'] a[data-toggle='tab']").text().toLowerCase();
+        // var protype = $(".nav-tabs li[class='active'] a[data-toggle='tab']").text().toLowerCase();
         var selectText = $("#" + protype + "_select_app option:selected").val();
 
         if (selectText) {
@@ -51,10 +82,13 @@ $(document).ready(function () {
     });
 
     $("#modal_btn").click(function () {
-        $("#" + protype + "_input_isupdate").val("1");    //1: 强制升级; 0: 不升级，返回检查文件路径
+        //$("#" + protype + "_input_isupdate").val("1");    //1: 强制升级; 0: 不升级，返回检查文件路径
+        $("#ul_modal").find("li").remove();
+        $("#mymodal").modal('hide');
         web_submit();
     })
 });
+
 
 function parse_web(filelist) {
     filelist = filelist.replace(/\\/g, '/');
