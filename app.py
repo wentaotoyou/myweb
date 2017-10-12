@@ -4,11 +4,10 @@ import os.path
 import tornado
 # import tornado.options
 import tornado.web
-
-from url import url
-import jenkins
-
 from tornado.options import define, options
+
+from function import jenkins
+from url import url
 
 define("port", default=80, help='Run on the given port', type=int)
 define("url", group='jenkins')

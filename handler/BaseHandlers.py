@@ -5,7 +5,7 @@ import json
 import ConfigParser
 import logging
 
-import tornado
+# import tornado
 import tornado.web
 import tornado.websocket
 
@@ -50,7 +50,7 @@ class WebUpHandler(tornado.websocket.WebSocketHandler):
         jks = options.group_dict('jenkins')
         jk = self.application.jenkins(url=jks['url'], username=jks['user'], password=jks['passwd'])
         # result: SUCCESS, FAILURE
-        result = jk.build(app, self)
+        result = jk.build(app, self.write_message)
 
         logger.info(result)
 
@@ -59,13 +59,6 @@ class IndexHandler(tornado.web.RequestHandler):
     def get(self):
         protypes = parse_config()
         self.render('index.html', protypes=protypes)
-
-
-class WebUpdate(tornado.web.RequestHandler):
-    def post(self):
-        app = self.get_argument('web_input_app')
-        filelist = self.get_argument('web_txtarea_after')
-        filelist = filelist.split('\n')
 
 
 class IsExist(tornado.web.RequestHandler):
