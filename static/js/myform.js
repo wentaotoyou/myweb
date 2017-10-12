@@ -45,9 +45,9 @@ function web_submit() {
         ws.send(JSON.stringify(data));
     };
 
-    ws.onmessage = function (evt2) {
-        if (evt2.data !== "") {
-            pre.append(evt2.data);
+    ws.onmessage = function (evt) {
+        if (evt.data !== "") {
+            pre.append(evt.data);
         }
     };
 }
@@ -84,10 +84,19 @@ $(document).ready(function () {
     $("#modal_btn").click(function () {
         //$("#" + protype + "_input_isupdate").val("1");    //1: 强制升级; 0: 不升级，返回检查文件路径
         $("#ul_modal").find("li").remove();
-        $("#mymodal").modal('hide');
+        // modal 会留下一层阴影
+        // <div class="modal-backdrop fade in"></div>
+        $("div[class='modal-backdrop fade in']").remove();
         web_submit();
     })
 });
+
+function test () {
+    // setTimeout("console.log('delay')", 10000);
+    // console.log('here');
+    $("#whole").load('/console')
+
+}
 
 
 function parse_web(filelist) {

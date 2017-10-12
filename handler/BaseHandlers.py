@@ -3,9 +3,15 @@
 import os
 import json
 import ConfigParser
+import logging
+
 import tornado
 import tornado.web
 import tornado.websocket
+
+from tornado.options import define, options
+
+logger = logging.getLogger(__name__)
 
 
 class MyConfigParser(ConfigParser.SafeConfigParser):
@@ -16,7 +22,7 @@ class MyConfigParser(ConfigParser.SafeConfigParser):
 # read the config file
 def parse_config():
     cp = MyConfigParser(allow_no_value=True)
-    cp.read('conf/myweb.conf')
+    cp.read('conf/apps.conf')
     protypes = {}
     protypes['soa'] = cp.options('soa')
     protypes['web'] = cp.options('web')
@@ -33,17 +39,21 @@ class WebUpHandler(tornado.websocket.WebSocketHandler):
         pass
 
     def on_message(self, message):
-        # self.write_message('copy that %s' % message)
         data = json.loads(message)
-        print data
         filelist = data['web_txtarea_after']
         isreboot = data['web_radio_isreboot']
         app = data['web_input_app']
-        print app
+        logger.info(isreboot)
+        logger.info(type(filelist))
+        self.write_message(filelist)
 
-        # jk = self.application.jenkins('http://192.168.1.218:8080', username='admin', password='admin')
-        # jk.build(app, self)
-        self.write_message('test feedback')
+        jks = options.group_dict('jenkins')
+        jk = self.application.jenkins(url=jks['url'], username=jks['user'], password=jks['passwd'])
+        # result: SUCCESS, FAILURE
+        result = jk.build(app, self)
+
+        logger.info(result)
+
 
 class IndexHandler(tornado.web.RequestHandler):
     def get(self):

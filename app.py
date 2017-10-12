@@ -11,6 +11,10 @@ import jenkins
 from tornado.options import define, options
 
 define("port", default=80, help='Run on the given port', type=int)
+define("url", group='jenkins')
+define("user", group='jenkins')
+define("passwd", group='jenkins')
+define("base_dir", group='jenkins')
 
 class Application(tornado.web.Application):
     def __init__(self):
@@ -25,7 +29,8 @@ class Application(tornado.web.Application):
         tornado.web.Application.__init__(self, handlers, **settings)
 
 if __name__ == '__main__':
-    tornado.options.parse_command_line()
+    options.parse_config_file('./conf/server.conf')
+    options.parse_command_line()
 
     # app = tornado.web.Application(
     #     # autoreload=True,
