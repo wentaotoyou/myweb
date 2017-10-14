@@ -37,7 +37,7 @@ function web_submit() {
     $("#whole").load('/console', function () {
         pre = $("#out");
 
-        var host = 'ws://127.0.0.1/webuphandler';
+        var host = 'ws://118.178.123.110:801/webuphandler';
         var ws = new WebSocket(host);
 
         ws.onopen = function (evt) {

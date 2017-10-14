@@ -5,6 +5,9 @@ import re
 import shutil
 import subprocess
 import zipfile
+import logging
+
+logger = logging.getLogger(__file__)
 
 #
 # # 压缩提取出来的文件
@@ -63,13 +66,12 @@ import zipfile
 #         '''
 #     zipapp(app, pkgsdir=pkgsdir)
 
-
-
-def update_web(app, filelist):
-    # cmd = 'cp --parents %s ./pkgs/%s' % (fullpath, app)
-    # cmd = ['cp', '--parents', fullpath, appdir+'/']
-    cmd = ['netstat', '-an']
+def update_web(app, src_dir, filelist):
+    script = os.path.join(os.getcwd(), 'function','update_web.sh')
+    cmd = ['bash',script, app, src_dir, filelist]
     # print cmd
-    p = subprocess.Popen(cmd, stderr=subprocess.PIPE)
-    # out, err = p.communicate()
-    # print out
+    p = subprocess.Popen(cmd, stderr=subprocess.PIPE, stdout=subprocess.PIPE)
+    out = p.communicate()
+    logger.info(out)
+    return out
+

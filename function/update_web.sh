@@ -13,40 +13,34 @@ function logger(){
 }
 
 # Shell Usage
-function shell_usage(){
-    echo $"Usage: $0 eshop-app /data/project/web/eshop-server/eshop-app/target/eshop-app"
-}
-
-if [ $# -ne 2 ]; then
-    shell_usage
-    exit 1
-fi
+#function shell_usage(){
+#    echo $"Usage: $0 eshop-app /data/project/web/eshop-server/eshop-app/target/eshop-app "
+#}
+#
+#if [ $# -ne 2 ]; then
+#    shell_usage
+#    exit 1
+#fi
 
 APP=$1
-src_dir = $2
-if [ -z "$APP" -o ! -d "/data/updates/templates/$APP" ];then
-    echo "Null parameter or $APP configuration files does not exist"
-    exit 1
-fi
+src_dir=$2
+filelist=$3
 
-if [ -z "$src_dir" -0 -d "$src_dir" ];then
-    echo "Null parameter or $src_dir
-fi
+for file in $filelist
+do
+#    cp -rp --parent $file $src_dir/$file pkgs_dir/$APP/
+    echo $file
+done
+#if [ -z "$APP" -o ! -z "$src_dir" ];then
+#    echo "Null parameter or $APP configuration files does not exist"
+#    exit 1
+#fi
 
-cp -rp --parent
+#if [ -z "$src_dir" -0 -d "$src_dir" ];then
+#    echo "Null parameter or $src_dir does not exist"
+#fi
 
-echo "Replace configuration files now..."
-cd /data/updates/pkgs/$APP || exit 1
-unzip -q $APP.zip && rm -rf $APP.zip
-if [ $? != 0 ];then
-    echo "Error occurred when unzip the $APP packages"
-    exit 1
-fi
-
-cp -rp /data/updates/templates/$APP/* . || exit 1
-zip -rqm /data/updates/pkgs/$APP/$APP.zip ./*
-if [ $? = 0 ];then
-    echo "Replace success"
-else
-    echo "Replace failed"
-fi
+#rsync -avzp pkgs_dir/$APP 192.168.1.222:/data/web/$APP
+#if [ isreboot = 0 ];then
+#    ssh 192.168.1.222 tomcat reboot $APP
+#fi

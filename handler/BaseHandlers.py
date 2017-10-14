@@ -2,8 +2,10 @@
 
 import os
 import json
+import time
 import ConfigParser
 import logging
+import subprocess
 
 # import tornado
 import tornado.web
@@ -44,17 +46,17 @@ class WebUpHandler(tornado.websocket.WebSocketHandler):
         filelist = data['web_txtarea_after']
         isreboot = data['web_radio_isreboot']
         app = data['web_input_app']
-        logger.info(isreboot)
-        logger.info(type(filelist))
+
         self.write_message(filelist)
 
         jks = options.group_dict('jenkins')
+        logger.info("jks: %s" % jks)
         # jk = self.application.jenkins(url=jks['url'], username=jks['user'], password=jks['passwd'])
         # result: SUCCESS, FAILURE
         # result = jk.build(app, self.write_message)
 
-        # logger.info(result)
-        update_web(app, filelist)
+        ret_data = update_web(app,'/data/projects/web/mkt-server/mkt-bg', filelist)
+        print ret_data
 
 
 class IndexHandler(tornado.web.RequestHandler):
@@ -71,7 +73,7 @@ class IsExist(tornado.web.RequestHandler):
 
         notexist = []
         for file in filelist:
-            file_path = os.path.join('e:\\', app, file)
+            file_path = os.path.join('/data/web', app, file)
             if not os.path.isfile(file_path):
                 notexist.append(file_path)
 
