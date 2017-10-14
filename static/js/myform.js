@@ -35,21 +35,21 @@ function web_submit() {
     });
 
     $("#whole").load('/console', function () {
-        pre = $("#out")
+        pre = $("#out");
+
+        var host = 'ws://127.0.0.1/webuphandler';
+        var ws = new WebSocket(host);
+
+        ws.onopen = function (evt) {
+            ws.send(JSON.stringify(data));
+        };
+
+        ws.onmessage = function (evt) {
+            if (evt.data !== "") {
+                pre.append(evt.data);
+            }
+        };
     });
-
-    var host = 'ws://127.0.0.1/webuphandler';
-    var ws = new WebSocket(host);
-    
-    ws.onopen = function (evt) {
-        ws.send(JSON.stringify(data));
-    };
-
-    ws.onmessage = function (evt) {
-        if (evt.data !== "") {
-            pre.append(evt.data);
-        }
-    };
 }
 
 $(document).ready(function () {
@@ -91,7 +91,7 @@ $(document).ready(function () {
     })
 });
 
-function test () {
+function test() {
     // setTimeout("console.log('delay')", 10000);
     // console.log('here');
     $("#whole").load('/console')

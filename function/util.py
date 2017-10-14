@@ -68,8 +68,8 @@ import zipfile
 def update_web(app, filelist):
     # cmd = 'cp --parents %s ./pkgs/%s' % (fullpath, app)
     # cmd = ['cp', '--parents', fullpath, appdir+'/']
-    cmd = ['ls /data/web/%s' % app]
-    print cmd
+    cmd = ['netstat', '-an']
+    # print cmd
     p = subprocess.Popen(cmd, stderr=subprocess.PIPE)
-    out, err = p.communicate()
-    print err
+    # out, err = p.communicate()
+    # print out

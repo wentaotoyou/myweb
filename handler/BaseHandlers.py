@@ -10,6 +10,7 @@ import tornado.web
 import tornado.websocket
 
 from tornado.options import define, options
+from function.util import update_web
 
 logger = logging.getLogger(__name__)
 
@@ -48,11 +49,12 @@ class WebUpHandler(tornado.websocket.WebSocketHandler):
         self.write_message(filelist)
 
         jks = options.group_dict('jenkins')
-        jk = self.application.jenkins(url=jks['url'], username=jks['user'], password=jks['passwd'])
+        # jk = self.application.jenkins(url=jks['url'], username=jks['user'], password=jks['passwd'])
         # result: SUCCESS, FAILURE
-        result = jk.build(app, self.write_message)
+        # result = jk.build(app, self.write_message)
 
-        logger.info(result)
+        # logger.info(result)
+        update_web(app, filelist)
 
 
 class IndexHandler(tornado.web.RequestHandler):
