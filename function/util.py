@@ -74,4 +74,3 @@ def update_web(app, src_dir, filelist):
     out = p.communicate()
     logger.info(out)
     return out
-

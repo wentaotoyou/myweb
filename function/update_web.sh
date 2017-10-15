@@ -12,35 +12,26 @@ function logger(){
     echo -e "$(date "+%Y%m%d %H:%M:%S"): ${LOG_INFO}" >> ${SHELL_LOG}
 }
 
-# Shell Usage
-#function shell_usage(){
-#    echo $"Usage: $0 eshop-app /data/project/web/eshop-server/eshop-app/target/eshop-app "
-#}
-#
-#if [ $# -ne 2 ]; then
-#    shell_usage
-#    exit 1
-#fi
+ Shell Usage
+function shell_usage(){
+    echo $"Usage: $0 eshop-app /data/project/web/eshop-server/eshop-app/target/eshop-app /data"
+}
 
-APP=$1
+if [ $# -ne 3 ]; then
+    shell_usage
+    exit 1
+fi
+
+app=$1
 src_dir=$2
 filelist=$3
 
 for file in $filelist
 do
-#    cp -rp --parent $file $src_dir/$file pkgs_dir/$APP/
+#    cp -rp --parent $file $src_dir/$file pkgs_dir/$app/
     echo $file
 done
-#if [ -z "$APP" -o ! -z "$src_dir" ];then
-#    echo "Null parameter or $APP configuration files does not exist"
-#    exit 1
-#fi
-
-#if [ -z "$src_dir" -0 -d "$src_dir" ];then
-#    echo "Null parameter or $src_dir does not exist"
-#fi
-
-#rsync -avzp pkgs_dir/$APP 192.168.1.222:/data/web/$APP
+#rsync -avzp pkgs_dir/$app 192.168.1.222:/data/web/$app
 #if [ isreboot = 0 ];then
-#    ssh 192.168.1.222 tomcat reboot $APP
+#    ssh 192.168.1.222 tomcat reboot $app
 #fi
