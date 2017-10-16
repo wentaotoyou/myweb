@@ -21,8 +21,13 @@ class Jenkins:
         }
 
         session = requests.Session()
-        session.get(jk_index)
-        session.post(login_url, data=login_data)
+        try:
+            session.get(jk_index, timeout=10)
+            r = session.post(login_url, data=login_data, timeout=10)
+            cont = r.text
+        except Exception, e:
+            logger.error(e)
+        logger.info(cont)
 
         self.__session = session
 

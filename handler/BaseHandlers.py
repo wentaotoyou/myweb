@@ -51,12 +51,13 @@ class WebUpHandler(tornado.websocket.WebSocketHandler):
 
         jks = options.group_dict('jenkins')
         logger.info("jks: %s" % jks)
-        # jk = self.application.jenkins(url=jks['url'], username=jks['user'], password=jks['passwd'])
+        jk = self.application.jenkins(url=jks['url'], username=jks['user'], password=jks['passwd'])
         # result: SUCCESS, FAILURE
-        # result = jk.build(app, self.write_message)
+        result = jk.build(app, self.write_message)
+        logger.info(result)
 
-        ret_data = update_web(app,'/data/projects/web/mkt-server/mkt-bg', filelist)
-        print ret_data
+        # ret_data = update_web(app,'/data/projects/web/mkt-server/mkt-bg', filelist)
+        # print ret_data
 
 
 class IndexHandler(tornado.web.RequestHandler):
